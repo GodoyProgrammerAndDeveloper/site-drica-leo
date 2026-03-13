@@ -1,0 +1,78 @@
+﻿:root {
+  /* CORES PRINCIPAIS - FEMININAS E VISÍVEIS */
+  --rose-50: #fff1f2;
+  --rose-100: #ffe4e6;
+  --rose-200: #fecdd3;
+  --rose-300: #fda4af;
+  --rose-400: #fb7185;
+  --rose-500: #f43f5e;
+  --rose-600: #e11d48;
+  --rose-700: #be123c;
+  
+  --lavender-50: #f5f3ff;
+  --lavender-100: #ede9fe;
+  --lavender-200: #ddd6fe;
+  --lavender-300: #c4b5fd;
+  --lavender-400: #a78bfa;
+  --lavender-500: #8b5cf6;
+  --lavender-600: #7c3aed;
+  
+  --peach-50: #fff7ed;
+  --peach-100: #ffedd5;
+  --peach-200: #fed7aa;
+  --peach-300: #fdba74;
+  --peach-400: #fb923c;
+  
+  /* TEXTOS - SEMPRE ESCUROS E VISÍVEIS */
+  --text-dark: #1e293b;      /* Quase preto */
+  --text-soft: #334155;      /* Cinza escuro legível */
+  --text-light: #ffffff;      /* Branco */
+  
+  /* CORES PRINCIPAIS DO SITE */
+  --primary-500: #8b5cf6;     /* Roxo lavanda */
+  --primary-600: #7c3aed;
+  --primary-700: #6d28d9;
+  
+  --secondary-500: #f43f5e;   /* Rosa */
+  --secondary-600: #e11d48;
+  --secondary-700: #be123c;
+  
+  --accent-500: #fbbf24;      /* Amarelo suave */
+  
+  /* FUNDOS */
+  --bg-light: linear-gradient(135deg, 
+    #fdf4f5 0%,
+    #fef1f7 25%,
+    #feeef9 50%,
+    #fef1f7 75%,
+    #fdf4f5 100%
+  );
+  
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --bg-card-solid: #ffffff;
+  
+  /* TIPOGRAFIA */
+  --font-primary: 'Quicksand', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+  --font-accent: 'Cormorant Garamond', serif;
+  
+  /* ESPAÇAMENTOS */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  
+  /* BORDAS */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-full: 50px;
+  
+  /* SOMBRAS */
+  --shadow-sm: 0 2px 4px rgba(139, 92, 246, 0.1);
+  --shadow-md: 0 4px 8px rgba(139, 92, 246, 0.15);
+  --shadow-lg: 0 8px 16px rgba(139, 92, 246, 0.2);
+}

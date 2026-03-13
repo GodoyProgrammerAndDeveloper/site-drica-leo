@@ -1,0 +1,75 @@
+﻿.services-page {
+  padding-bottom: var(--space-xxl);
+  background: #f8faff;
+}
+
+.page-header {
+  background: linear-gradient(135deg, #1a4b7a, #0f3555);
+  padding: var(--space-xxxl) 0;
+  margin-bottom: var(--space-xxl);
+  text-align: center;
+}
+
+.page-title {
+  color: white !important;
+  font-size: 3.5rem;
+  font-weight: 800 !important;
+  font-style: italic;
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+}
+
+.page-subtitle {
+  color: rgba(255,255,255,0.95) !important;
+  font-size: 1.4rem;
+  font-weight: 600 !important;
+  font-style: italic;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.service-card-full {
+  background: white;
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  margin-bottom: var(--space-xl);
+  border: 3px solid #1a4b7a;
+  box-shadow: 0 10px 30px rgba(26,75,122,0.2);
+}
+
+.service-card-header h2 {
+  font-size: 2.2rem;
+  font-weight: 800 !important;
+  font-style: italic;
+  color: #1a4b7a;
+}
+
+.service-description-full {
+  font-size: 1.2rem;
+  font-weight: 500 !important;
+  color: #2c3e50;
+  line-height: 1.8;
+}
+
+.service-features h3,
+.service-benefits h3 {
+  font-size: 1.5rem;
+  font-weight: 700 !important;
+  color: #1a4b7a;
+  margin-bottom: var(--space-md);
+}
+
+.service-features li,
+.service-benefits li {
+  font-size: 1.1rem;
+  font-weight: 500 !important;
+  color: #2c3e50;
+  padding: var(--space-sm) 0;
+}
+
+.service-footer .btn-primary,
+.service-footer .btn-secondary {
+  font-weight: 700 !important;
+  font-size: 1.1rem;
+  padding: var(--space-md) var(--space-xl);
+  text-transform: uppercase;
+}
