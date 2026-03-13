@@ -1,0 +1,17 @@
+﻿.home-page {
+  animation: fadeIn 0.5s ease;
+}
+
+/* Garantir que todos os textos na home estejam fortes */
+.home-page h1, 
+.home-page h2, 
+.home-page h3, 
+.home-page p {
+  font-weight: 500 !important;
+}
+
+.home-page .section-title {
+  font-weight: 800 !important;
+  font-style: italic;
+  color: #1a4b7a;
+}
