@@ -56,192 +56,163 @@ const ServicesPage = () => {
   ];
 
   return (
-    <div style={{
-      padding: "100px 20px 40px",
-      maxWidth: "1200px",
+    <div style={{ 
+      padding: "100px 20px 40px", 
+      maxWidth: "1200px", 
       margin: "0 auto",
-      backgroundColor: "#fef6f9"
+      fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
     }}>
-      {/* CABEÇALHO */}
-      <div style={{
-        textAlign: "center",
-        marginBottom: "60px"
-      }}>
-        <h1 style={{
-          fontSize: "3rem",
-          color: "#4361ee",
-          marginBottom: "20px",
-          fontWeight: "bold"
+      {/* TÍTULO */}
+      <div style={{ textAlign: "center", marginBottom: "40px" }}>
+        <h1 style={{ 
+          fontSize: "3rem", 
+          color: "#4361ee", 
+          marginBottom: "10px",
+          fontWeight: "bold" 
         }}>
           Nossos Serviços
         </h1>
-        <p style={{
-          fontSize: "1.3rem",
-          color: "#f72585",
-          maxWidth: "800px",
-          margin: "0 auto"
+        <p style={{ 
+          fontSize: "1.3rem", 
+          color: "#f72585" 
         }}>
-          Transformamos sua casa com organização profissional e qualidade
+          Soluções personalizadas para cada ambiente
         </p>
       </div>
 
-      {/* CARDS DE SERVIÇOS */}
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(2, 1fr)",
+      {/* CARDS */}
+      <div style={{ 
+        display: "grid", 
+        gridTemplateColumns: "repeat(2, 1fr)", 
         gap: "30px",
-        marginBottom: "80px"
+        marginBottom: "60px"
       }}>
-        {services.map(service => (
+        {services.map((service) => (
           <div
             key={service.id}
             style={{
-              background: "white",
+              background: "#fff",
               borderRadius: "20px",
               overflow: "hidden",
               boxShadow: "0 10px 30px rgba(67, 97, 238, 0.1)",
-              border: "1px solid #e0e0e0",
-              transition: "transform 0.3s",
-              cursor: "pointer"
+              border: "1px solid #e9ecef"
             }}
-            onClick={() => navigate(`/servicos/${service.id}`)}
           >
             {/* IMAGEM */}
-            <div style={{
-              height: "250px",
-              overflow: "hidden",
-              position: "relative"
+            <div style={{ 
+              height: "250px", 
+              overflow: "hidden", 
+              position: "relative" 
             }}>
-              <img
-                src={service.image}
+              <img 
+                src={service.image} 
                 alt={service.title}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover"
+                style={{ 
+                  width: "100%", 
+                  height: "100%", 
+                  objectFit: "cover" 
                 }}
               />
+              {/* Ícone flutuante */}
               <div style={{
                 position: "absolute",
-                top: "20px",
-                left: "20px",
+                bottom: "-25px",
+                right: "20px",
+                width: "70px",
+                height: "70px",
                 background: "#4361ee",
-                color: "white",
-                padding: "10px 15px",
-                borderRadius: "30px",
-                fontSize: "1.5rem",
+                borderRadius: "50%",
                 display: "flex",
                 alignItems: "center",
-                gap: "10px",
-                boxShadow: "0 4px 10px rgba(0,0,0,0.2)"
+                justifyContent: "center",
+                fontSize: "2.5rem",
+                color: "white",
+                border: "4px solid white",
+                boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
+                zIndex: "10"
               }}>
-                <span>{service.icon}</span>
-                <span style={{ fontSize: "1rem", fontWeight: "600" }}>{service.title}</span>
+                {service.icon}
               </div>
             </div>
 
             {/* CONTEÚDO */}
-            <div style={{ padding: "30px" }}>
+            <div style={{ padding: "40px 25px 25px 25px" }}>
+              {/* TÍTULO DO SERVIÇO (AGORA FORA DA IMAGEM) */}
+              <h2 style={{ 
+                fontSize: "2rem", 
+                color: "#4361ee", 
+                marginBottom: "20px",
+                fontWeight: "bold",
+                textAlign: "center"
+              }}>
+                {service.title}
+              </h2>
+
               {/* BENEFÍCIO */}
               <div style={{
                 background: "#f8f9fa",
                 padding: "20px",
-                borderRadius: "15px",
-                marginBottom: "20px",
-                border: "1px solid #e9ecef"
+                borderRadius: "12px",
+                marginBottom: "15px"
               }}>
-                <h3 style={{
-                  fontSize: "1.2rem",
-                  color: "#f72585",
-                  marginBottom: "10px",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "8px"
-                }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
                   <span style={{ fontSize: "1.5rem" }}>✨</span>
-                  Benefício
-                </h3>
-                <p style={{
-                  color: "#2d2d44",
-                  fontSize: "1rem",
-                  lineHeight: "1.7",
-                  margin: 0
-                }}>{service.benefit}</p>
+                  <h3 style={{ fontSize: "1.2rem", color: "#f72585", margin: 0, fontWeight: "600" }}>
+                    Benefício
+                  </h3>
+                </div>
+                <p style={{ fontSize: "1rem", color: "#2d2d44", lineHeight: "1.6", margin: 0 }}>
+                  {service.benefit}
+                </p>
               </div>
 
               {/* QUALIDADE */}
               <div style={{
-                background: "#f0f4ff",
+                background: "#eef2ff",
                 padding: "20px",
-                borderRadius: "15px",
-                border: "1px solid #d0e0ff"
+                borderRadius: "12px"
               }}>
-                <h3 style={{
-                  fontSize: "1.2rem",
-                  color: "#4361ee",
-                  marginBottom: "10px",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "8px"
-                }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
                   <span style={{ fontSize: "1.5rem" }}>🏆</span>
-                  Qualidade
-                </h3>
-                <p style={{
-                  color: "#2d2d44",
-                  fontSize: "1rem",
-                  lineHeight: "1.7",
-                  margin: 0
-                }}>{service.quality}</p>
+                  <h3 style={{ fontSize: "1.2rem", color: "#4361ee", margin: 0, fontWeight: "600" }}>
+                    Qualidade
+                  </h3>
+                </div>
+                <p style={{ fontSize: "1rem", color: "#2d2d44", lineHeight: "1.6", margin: 0 }}>
+                  {service.quality}
+                </p>
               </div>
             </div>
           </div>
         ))}
       </div>
 
-      {/* CHAMADA PARA AÇÃO */}
+      {/* CHAMADA FINAL */}
       <div style={{
         textAlign: "center",
-        padding: "60px 40px",
+        padding: "50px 30px",
         background: "linear-gradient(135deg, #4361ee, #f72585)",
         borderRadius: "30px",
-        boxShadow: "0 20px 40px rgba(67, 97, 238, 0.3)"
+        color: "white"
       }}>
-        <h2 style={{
-          fontSize: "2.5rem",
-          color: "white",
-          marginBottom: "20px",
-          fontWeight: "bold"
-        }}>
+        <h2 style={{ fontSize: "2.2rem", marginBottom: "15px", fontWeight: "bold" }}>
           Venha nos conhecer!
         </h2>
-        <p style={{
-          fontSize: "1.3rem",
-          color: "white",
-          opacity: 0.9,
-          maxWidth: "700px",
-          margin: "0 auto 30px"
-        }}>
+        <p style={{ fontSize: "1.2rem", marginBottom: "25px", opacity: 0.95 }}>
           Faça um orçamento sem compromisso e descubra como podemos transformar seu espaço
         </p>
-        <div style={{
-          display: "flex",
-          gap: "20px",
-          justifyContent: "center"
-        }}>
+        <div style={{ display: "flex", gap: "15px", justifyContent: "center", flexWrap: "wrap" }}>
           <button
             onClick={() => navigate('/contato')}
             style={{
-              padding: "15px 40px",
+              padding: "12px 30px",
               background: "white",
               color: "#4361ee",
               border: "none",
               borderRadius: "50px",
-              fontSize: "1.2rem",
-              fontWeight: "600",
-              cursor: "pointer",
-              boxShadow: "0 5px 15px rgba(0,0,0,0.2)",
-              transition: "transform 0.2s"
+              fontSize: "1.1rem",
+              fontWeight: "bold",
+              cursor: "pointer"
             }}
           >
             Fazer orçamento
@@ -249,15 +220,17 @@ const ServicesPage = () => {
           <button
             onClick={() => window.open('https://wa.me/5581994732981', '_blank')}
             style={{
-              padding: "15px 40px",
+              padding: "12px 30px",
               background: "transparent",
               color: "white",
               border: "2px solid white",
               borderRadius: "50px",
-              fontSize: "1.2rem",
-              fontWeight: "600",
+              fontSize: "1.1rem",
+              fontWeight: "bold",
               cursor: "pointer",
-              transition: "transform 0.2s"
+              display: "flex",
+              alignItems: "center",
+              gap: "8px"
             }}
           >
             <i className="fab fa-whatsapp"></i> WhatsApp
@@ -265,31 +238,19 @@ const ServicesPage = () => {
         </div>
       </div>
 
-      {/* CSS RESPONSIVO INLINE */}
+      {/* CSS RESPONSIVO */}
       <style>{`
         @media (max-width: 768px) {
           div[style*="grid-template-columns: repeat(2, 1fr)"] {
             grid-template-columns: 1fr !important;
-            gap: 20px !important;
           }
-          
-          h1 {
-            font-size: 2.5rem !important;
-          }
-          
-          h2 {
-            font-size: 2rem !important;
-          }
-          
-          div[style*="display: flex; gap: 20px; justify-content: center"] {
+          h1 { font-size: 2.5rem !important; }
+          h2 { font-size: 1.8rem !important; }
+          div[style*="display: flex; gap: 15px; justify-content: center"] {
             flex-direction: column !important;
             align-items: center !important;
           }
-          
-          button {
-            width: 100% !important;
-            max-width: 300px !important;
-          }
+          button { width: 100% !important; max-width: 300px !important; }
         }
       `}</style>
     </div>
