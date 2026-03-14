@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import BackToTop from "../components/BackToTop";
 
 const HomePage = () => {
   const navigate = useNavigate();
+  const [currentPath, setCurrentPath] = useState('/');
   const [logoAmpliado, setLogoAmpliado] = useState(false);
+
+  useEffect(() => {
+    setCurrentPath(window.location.pathname);
+  }, []);
 
   const services = [
     { icon: '👗', title: 'Guarda-roupas', desc: 'Organização completa com técnicas Marie Kondo' },
@@ -44,7 +50,7 @@ const HomePage = () => {
 
   return (
     <div style={{ padding: "120px 20px 40px", maxWidth: "1200px", margin: "0 auto", position: "relative" }}>
-      {/* HEADER FIXO COM MENU E BOTÕES SOCIAIS */}
+      {/* HEADER FIXO COM MENU LADO DIREITO */}
       <div style={{
         position: "fixed",
         top: 0,
@@ -77,11 +83,11 @@ const HomePage = () => {
         <div style={{ display: "flex", alignItems: "center", gap: "30px", flexWrap: "wrap" }}>
           {/* MENU DE NAVEGAÇÃO */}
           <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
-            <a href="/" style={{ textDecoration: "none", color: "#4361ee", fontWeight: "600" }}>Início</a>
-            <a href="/servicos" style={{ textDecoration: "none", color: "#2d2d44", fontWeight: "500" }}>Serviços</a>
-            <a href="/sobre" style={{ textDecoration: "none", color: "#2d2d44", fontWeight: "500" }}>Sobre</a>
-            <a href="/galeria" style={{ textDecoration: "none", color: "#2d2d44", fontWeight: "500" }}>Galeria</a>
-            <a href="/contato" style={{ textDecoration: "none", color: "#2d2d44", fontWeight: "500" }}>Contato</a>
+            <a href="/" style={{ textDecoration: "none", color: currentPath === '/' ? '#4361ee' : '#2d2d44', fontWeight: currentPath === '/' ? '600' : '500' }}>Início</a>
+            <a href="/servicos" style={{ textDecoration: "none", color: currentPath === '/servicos' ? '#4361ee' : '#2d2d44', fontWeight: currentPath === '/servicos' ? '600' : '500' }}>Serviços</a>
+            <a href="/sobre" style={{ textDecoration: "none", color: currentPath === '/sobre' ? '#4361ee' : '#2d2d44', fontWeight: currentPath === '/sobre' ? '600' : '500' }}>Sobre</a>
+            <a href="/galeria" style={{ textDecoration: "none", color: currentPath === '/galeria' ? '#4361ee' : '#2d2d44', fontWeight: currentPath === '/galeria' ? '600' : '500' }}>Galeria</a>
+            <a href="/contato" style={{ textDecoration: "none", color: currentPath === '/contato' ? '#4361ee' : '#2d2d44', fontWeight: currentPath === '/contato' ? '600' : '500' }}>Contato</a>
           </div>
 
           {/* BOTÕES SOCIAIS COM SELO ACIMA */}
@@ -506,6 +512,9 @@ const HomePage = () => {
           Falar no WhatsApp
         </button>
       </section>
+
+      {/* BOTÃO VOLTAR AO TOPO */}
+      <BackToTop />
     </div>
   );
 };
