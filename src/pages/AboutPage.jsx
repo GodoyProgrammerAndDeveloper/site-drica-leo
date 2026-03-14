@@ -1,88 +1,324 @@
-﻿import React from "react";
+import React from "react";
 
 const AboutPage = () => {
   return (
-    <div style={{
-      padding: "100px 20px 40px",
-      maxWidth: "1200px",
-      margin: "0 auto"
-    }}>
-      {/* CABEÇALHO */}
+    <div style={{ padding: "120px 20px 40px", maxWidth: "1200px", margin: "0 auto", position: "relative" }}>
+      {/* HEADER FIXO COM MENU E BOTÕES SOCIAIS */}
       <div style={{
-        textAlign: "center",
-        marginBottom: "60px"
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        background: "white",
+        padding: "15px 30px",
+        boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
+        zIndex: 999,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        flexWrap: "wrap"
       }}>
-        <h1 style={{
-          fontSize: "3rem",
-          color: "#8b5cf6",
-          marginBottom: "20px",
-          position: "relative",
-          display: "inline-block"
-        }}>
-          Sobre Nós
-        </h1>
-        <div style={{
-          width: "80px",
-          height: "4px",
-          background: "linear-gradient(135deg, #8b5cf6, #f43f5e)",
-          margin: "0 auto",
-          borderRadius: "2px"
-        }}></div>
+        {/* LOGO (ESQUERDA) */}
+        <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
+          <img 
+            src="/images/logo.png" 
+            alt="Drica & Léo" 
+            style={{ width: "50px", height: "50px", borderRadius: "50%", objectFit: "cover" }}
+          />
+          <div>
+            <h2 style={{ margin: 0, fontSize: "1.3rem", color: "#4361ee" }}>Drica & Léo</h2>
+            <p style={{ margin: 0, fontSize: "0.8rem", color: "#f72585" }}>Personal Organizer</p>
+          </div>
+        </div>
+
+        {/* MENU E BOTÕES (DIREITA) */}
+        <div style={{ display: "flex", alignItems: "center", gap: "30px", flexWrap: "wrap" }}>
+          {/* MENU DE NAVEGAÇÃO */}
+          <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
+            <a href="/" style={{ textDecoration: "none", color: "#2d2d44", fontWeight: "500" }}>Início</a>
+            <a href="/servicos" style={{ textDecoration: "none", color: "#2d2d44", fontWeight: "500" }}>Serviços</a>
+            <a href="/sobre" style={{ textDecoration: "none", color: "#4361ee", fontWeight: "600" }}>Sobre</a>
+            <a href="/galeria" style={{ textDecoration: "none", color: "#2d2d44", fontWeight: "500" }}>Galeria</a>
+            <a href="/contato" style={{ textDecoration: "none", color: "#2d2d44", fontWeight: "500" }}>Contato</a>
+          </div>
+
+          {/* BOTÕES SOCIAIS COM SELO ACIMA */}
+          <div style={{ display: "flex", gap: "10px", position: "relative" }}>
+            {/* SELO ACIMA DOS BOTÕES */}
+            <div style={{
+              position: "absolute",
+              top: "-40px",
+              right: "0",
+              background: "linear-gradient(135deg, #4361ee, #f72585)",
+              color: "white",
+              padding: "5px 15px",
+              borderRadius: "50px",
+              fontSize: "0.8rem",
+              fontWeight: "bold",
+              display: "flex",
+              alignItems: "center",
+              gap: "5px",
+              whiteSpace: "nowrap",
+              border: "2px solid white",
+              boxShadow: "0 2px 10px rgba(0,0,0,0.2)"
+            }}>
+              <span>🏆</span> Profissional Certificado
+            </div>
+
+            <a 
+              href="https://wa.me/5581994732981" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{
+                background: "#25d366",
+                color: "white",
+                padding: "8px 16px",
+                borderRadius: "50px",
+                textDecoration: "none",
+                fontWeight: "600",
+                fontSize: "0.9rem",
+                display: "flex",
+                alignItems: "center",
+                gap: "5px"
+              }}
+            >
+              <i className="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a 
+              href="https://instagram.com/adrianamoura.organizer" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{
+                background: "linear-gradient(45deg, #f09433, #d62976, #962fbf, #4f5bd5)",
+                color: "white",
+                padding: "8px 16px",
+                borderRadius: "50px",
+                textDecoration: "none",
+                fontWeight: "600",
+                fontSize: "0.9rem",
+                display: "flex",
+                alignItems: "center",
+                gap: "5px"
+              }}
+            >
+              <i className="fab fa-instagram"></i> Instagram
+            </a>
+          </div>
+        </div>
       </div>
 
+      <style>{`
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
+        body {
+          background: #fef6f9;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+          padding-top: 80px;
+        }
+        h1 {
+          font-size: 3rem;
+          color: #4361ee;
+          text-align: center;
+          margin: 20px 0 10px 0;
+        }
+        .divider {
+          width: 80px;
+          height: 4px;
+          background: linear-gradient(135deg, #4361ee, #f72585);
+          margin: 0 auto 40px;
+          border-radius: 2px;
+        }
+        .history-card {
+          background: white;
+          border-radius: 30px;
+          padding: 50px;
+          box-shadow: 0 20px 40px rgba(67, 97, 238, 0.1);
+          margin-bottom: 60px;
+          border: 1px solid #e9ecef;
+        }
+        .history-header {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          margin-bottom: 30px;
+        }
+        .history-icon {
+          width: 60px;
+          height: 60px;
+          background: linear-gradient(135deg, #4361ee, #f72585);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 2rem;
+          color: white;
+        }
+        .history-header h2 {
+          font-size: 2.2rem;
+          color: #4361ee;
+          margin: 0;
+        }
+        .history-text {
+          font-size: 1.1rem;
+          color: #2d2d44;
+          line-height: 1.8;
+          margin-bottom: 20px;
+        }
+        .mission-vision-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 30px;
+          margin-bottom: 60px;
+        }
+        .mission-card, .vision-card {
+          background: linear-gradient(135deg, #f8f9fa, white);
+          border-radius: 20px;
+          padding: 40px;
+          box-shadow: 0 10px 25px rgba(67, 97, 238, 0.05);
+          border: 1px solid #e9ecef;
+          position: relative;
+          overflow: hidden;
+        }
+        .card-icon {
+          width: 50px;
+          height: 50px;
+          border-radius: 15px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.8rem;
+          color: white;
+          margin-bottom: 25px;
+        }
+        .mission-card .card-icon {
+          background: #4361ee;
+        }
+        .vision-card .card-icon {
+          background: #f72585;
+        }
+        .mission-card h3 {
+          font-size: 1.8rem;
+          color: #4361ee;
+          margin-bottom: 15px;
+        }
+        .vision-card h3 {
+          font-size: 1.8rem;
+          color: #f72585;
+          margin-bottom: 15px;
+        }
+        .mission-card p, .vision-card p {
+          font-size: 1.1rem;
+          color: #2d2d44;
+          line-height: 1.7;
+        }
+        .values-section {
+          margin-bottom: 60px;
+        }
+        .values-header {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          margin-bottom: 40px;
+        }
+        .values-icon {
+          width: 50px;
+          height: 50px;
+          background: linear-gradient(135deg, #4361ee, #f72585);
+          border-radius: 15px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.5rem;
+          color: white;
+        }
+        .values-header h2 {
+          font-size: 2rem;
+          color: #4361ee;
+          margin: 0;
+        }
+        .values-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 25px;
+        }
+        .value-card {
+          background: white;
+          border-radius: 20px;
+          padding: 30px 20px;
+          text-align: center;
+          box-shadow: 0 10px 20px rgba(67, 97, 238, 0.05);
+          border: 1px solid #e9ecef;
+        }
+        .value-icon {
+          font-size: 3rem;
+          margin-bottom: 15px;
+        }
+        .value-card h4 {
+          font-size: 1.3rem;
+          color: #4361ee;
+          margin-bottom: 10px;
+        }
+        .value-card p {
+          color: #2d2d44;
+          font-size: 0.95rem;
+          line-height: 1.6;
+        }
+        @media (max-width: 768px) {
+          .mission-vision-grid {
+            grid-template-columns: 1fr;
+          }
+          .values-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+          h1 {
+            font-size: 2.5rem;
+          }
+          .history-card {
+            padding: 30px;
+          }
+          .history-header h2 {
+            font-size: 1.8rem;
+          }
+          div[style*="position: fixed; top: 0; left: 0; width: 100%;"] {
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px;
+          }
+          div[style*="display: flex; gap: 20px; align-items: center;"] {
+            flex-wrap: wrap;
+            justify-content: center;
+          }
+        }
+        @media (max-width: 480px) {
+          .values-grid {
+            grid-template-columns: 1fr;
+          }
+          h1 {
+            font-size: 2rem;
+          }
+        }
+      `}</style>
+
+      <h1>Sobre Nós</h1>
+      <div className="divider"></div>
+
       {/* HISTÓRIA */}
-      <div style={{
-        background: "white",
-        borderRadius: "30px",
-        padding: "50px",
-        boxShadow: "0 20px 40px rgba(139, 92, 246, 0.1)",
-        marginBottom: "60px",
-        border: "1px solid #f0f0f0"
-      }}>
-        <div style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "20px",
-          marginBottom: "30px"
-        }}>
-          <div style={{
-            width: "60px",
-            height: "60px",
-            background: "linear-gradient(135deg, #8b5cf6, #f43f5e)",
-            borderRadius: "50%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: "2rem",
-            color: "white"
-          }}>
-            📖
-          </div>
-          <h2 style={{
-            fontSize: "2.2rem",
-            color: "#8b5cf6",
-            margin: 0
-          }}>
-            Nossa História
-          </h2>
+      <div className="history-card">
+        <div className="history-header">
+          <div className="history-icon">📖</div>
+          <h2>Nossa História</h2>
         </div>
-        <p style={{
-          fontSize: "1.1rem",
-          color: "#444",
-          lineHeight: "1.8",
-          marginBottom: "20px"
-        }}>
+        <p className="history-text">
           Somos Adriana (Drica) e Leonita (Léo), duas irmãs pernambucanas com uma 
           paixão em comum: transformar vidas através da organização. Nossa jornada 
           começou há mais de uma década, quando percebemos que um ambiente organizado 
           vai muito além da estética - ele traz paz de espírito, economia de tempo 
           e qualidade de vida.
         </p>
-        <p style={{
-          fontSize: "1.1rem",
-          color: "#444",
-          lineHeight: "1.8"
-        }}>
+        <p className="history-text">
           Com formação em Design de Interiores e especialização em Organização 
           Profissional, desenvolvemos uma metodologia única que combina técnicas 
           avançadas com um toque pessoal e acolhedor. Cada projeto é tratado com 
@@ -92,175 +328,49 @@ const AboutPage = () => {
       </div>
 
       {/* MISSÃO E VISÃO */}
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(2, 1fr)",
-        gap: "30px",
-        marginBottom: "60px"
-      }}>
-        {/* MISSÃO */}
-        <div style={{
-          background: "linear-gradient(135deg, #f9f9f9, white)",
-          borderRadius: "20px",
-          padding: "40px",
-          boxShadow: "0 10px 25px rgba(139, 92, 246, 0.05)",
-          border: "1px solid #f0f0f0"
-        }}>
-          <div style={{
-            width: "50px",
-            height: "50px",
-            background: "#8b5cf6",
-            borderRadius: "15px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: "1.8rem",
-            color: "white",
-            marginBottom: "25px"
-          }}>
-            🎯
-          </div>
-          <h3 style={{
-            fontSize: "1.8rem",
-            color: "#8b5cf6",
-            marginBottom: "15px"
-          }}>Missão</h3>
-          <p style={{
-            fontSize: "1.1rem",
-            color: "#555",
-            lineHeight: "1.7"
-          }}>
+      <div className="mission-vision-grid">
+        <div className="mission-card">
+          <div className="card-icon">🎯</div>
+          <h3>Missão</h3>
+          <p>
             Levar organização e harmonia para os lares, transformando espaços e simplificando a vida das pessoas.
           </p>
         </div>
-
-        {/* VISÃO */}
-        <div style={{
-          background: "linear-gradient(135deg, #f9f9f9, white)",
-          borderRadius: "20px",
-          padding: "40px",
-          boxShadow: "0 10px 25px rgba(139, 92, 246, 0.05)",
-          border: "1px solid #f0f0f0"
-        }}>
-          <div style={{
-            width: "50px",
-            height: "50px",
-            background: "#f43f5e",
-            borderRadius: "15px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: "1.8rem",
-            color: "white",
-            marginBottom: "25px"
-          }}>
-            👁️
-          </div>
-          <h3 style={{
-            fontSize: "1.8rem",
-            color: "#f43f5e",
-            marginBottom: "15px"
-          }}>Visão</h3>
-          <p style={{
-            fontSize: "1.1rem",
-            color: "#555",
-            lineHeight: "1.7"
-          }}>
+        <div className="vision-card">
+          <div className="card-icon">👁️</div>
+          <h3>Visão</h3>
+          <p>
             Ser referência em organização residencial no Brasil, mostrando que é possível ter uma casa organizada sem abrir mão da personalidade e do aconchego.
           </p>
         </div>
       </div>
 
       {/* VALORES */}
-      <div style={{ marginBottom: "60px" }}>
-        <div style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "15px",
-          marginBottom: "40px"
-        }}>
-          <div style={{
-            width: "50px",
-            height: "50px",
-            background: "linear-gradient(135deg, #8b5cf6, #f43f5e)",
-            borderRadius: "15px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: "1.5rem",
-            color: "white"
-          }}>
-            💎
-          </div>
-          <h2 style={{
-            fontSize: "2rem",
-            color: "#8b5cf6",
-            margin: 0
-          }}>
-            Nossos Valores
-          </h2>
+      <div className="values-section">
+        <div className="values-header">
+          <div className="values-icon">💎</div>
+          <h2>Nossos Valores</h2>
         </div>
-
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gap: "25px"
-        }}>
-          <div style={{
-            background: "white",
-            borderRadius: "20px",
-            padding: "30px 20px",
-            textAlign: "center",
-            boxShadow: "0 10px 20px rgba(139, 92, 246, 0.05)",
-            border: "1px solid #f0f0f0"
-          }}>
-            <div style={{ fontSize: "3rem", marginBottom: "15px" }}>❤️</div>
-            <h4 style={{ fontSize: "1.3rem", color: "#8b5cf6", marginBottom: "10px" }}>Amor</h4>
-            <p style={{ color: "#666", fontSize: "0.95rem", lineHeight: "1.6" }}>
-              Colocamos amor em cada detalhe, porque organizar é um ato de carinho consigo mesmo.
-            </p>
+        <div className="values-grid">
+          <div className="value-card">
+            <div className="value-icon">❤️</div>
+            <h4>Amor</h4>
+            <p>Colocamos amor em cada detalhe, porque organizar é um ato de carinho consigo mesmo.</p>
           </div>
-          <div style={{
-            background: "white",
-            borderRadius: "20px",
-            padding: "30px 20px",
-            textAlign: "center",
-            boxShadow: "0 10px 20px rgba(139, 92, 246, 0.05)",
-            border: "1px solid #f0f0f0"
-          }}>
-            <div style={{ fontSize: "3rem", marginBottom: "15px" }}>🤝</div>
-            <h4 style={{ fontSize: "1.3rem", color: "#8b5cf6", marginBottom: "10px" }}>Respeito</h4>
-            <p style={{ color: "#666", fontSize: "0.95rem", lineHeight: "1.6" }}>
-              Respeitamos a história e os pertences de cada cliente, trabalhando com discrição e ética.
-            </p>
+          <div className="value-card">
+            <div className="value-icon">🤝</div>
+            <h4>Respeito</h4>
+            <p>Respeitamos a história e os pertences de cada cliente, trabalhando com discrição e ética.</p>
           </div>
-          <div style={{
-            background: "white",
-            borderRadius: "20px",
-            padding: "30px 20px",
-            textAlign: "center",
-            boxShadow: "0 10px 20px rgba(139, 92, 246, 0.05)",
-            border: "1px solid #f0f0f0"
-          }}>
-            <div style={{ fontSize: "3rem", marginBottom: "15px" }}>✨</div>
-            <h4 style={{ fontSize: "1.3rem", color: "#8b5cf6", marginBottom: "10px" }}>Excelência</h4>
-            <p style={{ color: "#666", fontSize: "0.95rem", lineHeight: "1.6" }}>
-              Buscamos a excelência em cada projeto, com técnicas atualizadas e resultados duradouros.
-            </p>
+          <div className="value-card">
+            <div className="value-icon">✨</div>
+            <h4>Excelência</h4>
+            <p>Buscamos a excelência em cada projeto, com técnicas atualizadas e resultados duradouros.</p>
           </div>
-          <div style={{
-            background: "white",
-            borderRadius: "20px",
-            padding: "30px 20px",
-            textAlign: "center",
-            boxShadow: "0 10px 20px rgba(139, 92, 246, 0.05)",
-            border: "1px solid #f0f0f0"
-          }}>
-            <div style={{ fontSize: "3rem", marginBottom: "15px" }}>🌱</div>
-            <h4 style={{ fontSize: "1.3rem", color: "#8b5cf6", marginBottom: "10px" }}>Transformação</h4>
-            <p style={{ color: "#666", fontSize: "0.95rem", lineHeight: "1.6" }}>
-              Acreditamos no poder transformador da organização para uma vida mais leve e feliz.
-            </p>
+          <div className="value-card">
+            <div className="value-icon">🌱</div>
+            <h4>Transformação</h4>
+            <p>Acreditamos no poder transformador da organização para uma vida mais leve e feliz.</p>
           </div>
         </div>
       </div>
