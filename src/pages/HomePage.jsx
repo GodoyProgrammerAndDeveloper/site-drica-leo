@@ -90,67 +90,67 @@ const HomePage = () => {
             <a href="/contato" style={{ textDecoration: "none", color: currentPath === '/contato' ? '#4361ee' : '#2d2d44', fontWeight: currentPath === '/contato' ? '600' : '500' }}>Contato</a>
           </div>
 
-          {/* BOTÕES SOCIAIS COM SELO ACIMA */}
-          <div style={{ display: "flex", gap: "10px", position: "relative" }}>
-            {/* SELO ACIMA DOS BOTÕES */}
+          {/* BOTÕES SOCIAIS COM SELO ABAIXO */}
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "5px" }}>
+            {/* BOTÕES */}
+            <div style={{ display: "flex", gap: "10px" }}>
+              <a 
+                href="https://wa.me/5581994732981" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{
+                  background: "#25d366",
+                  color: "white",
+                  padding: "8px 16px",
+                  borderRadius: "50px",
+                  textDecoration: "none",
+                  fontWeight: "600",
+                  fontSize: "0.9rem",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "5px"
+                }}
+              >
+                <i className="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a 
+                href="https://instagram.com/adrianamoura.organizer" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{
+                  background: "linear-gradient(45deg, #f09433, #d62976, #962fbf, #4f5bd5)",
+                  color: "white",
+                  padding: "8px 16px",
+                  borderRadius: "50px",
+                  textDecoration: "none",
+                  fontWeight: "600",
+                  fontSize: "0.9rem",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "5px"
+                }}
+              >
+                <i className="fab fa-instagram"></i> Instagram
+              </a>
+            </div>
+
+            {/* SELO ABAIXO DOS BOTÕES */}
             <div style={{
-              position: "absolute",
-              top: "-40px",
-              right: "0",
               background: "linear-gradient(135deg, #4361ee, #f72585)",
               color: "white",
-              padding: "5px 15px",
+              padding: "4px 12px",
               borderRadius: "50px",
-              fontSize: "0.8rem",
+              fontSize: "0.75rem",
               fontWeight: "bold",
               display: "flex",
               alignItems: "center",
               gap: "5px",
               whiteSpace: "nowrap",
               border: "2px solid white",
-              boxShadow: "0 2px 10px rgba(0,0,0,0.2)"
+              boxShadow: "0 2px 8px rgba(0,0,0,0.2)"
             }}>
-              <span>🏆</span> Profissional Certificado
+              <span style={{ fontSize: "0.9rem" }}>🏆</span> Profissional Certificado
             </div>
-
-            <a 
-              href="https://wa.me/5581994732981" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              style={{
-                background: "#25d366",
-                color: "white",
-                padding: "8px 16px",
-                borderRadius: "50px",
-                textDecoration: "none",
-                fontWeight: "600",
-                fontSize: "0.9rem",
-                display: "flex",
-                alignItems: "center",
-                gap: "5px"
-              }}
-            >
-              <i className="fab fa-whatsapp"></i> WhatsApp
-            </a>
-            <a 
-              href="https://instagram.com/adrianamoura.organizer" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              style={{
-                background: "linear-gradient(45deg, #f09433, #d62976, #962fbf, #4f5bd5)",
-                color: "white",
-                padding: "8px 16px",
-                borderRadius: "50px",
-                textDecoration: "none",
-                fontWeight: "600",
-                fontSize: "0.9rem",
-                display: "flex",
-                alignItems: "center",
-                gap: "5px"
-              }}
-            >
-              <i className="fab fa-instagram"></i> Instagram
-            </a>
           </div>
         </div>
       </div>
