@@ -56,175 +56,192 @@ const ServicesPage = () => {
   ];
 
   return (
-    <div style={{ 
-      padding: "100px 20px 40px", 
-      maxWidth: "1200px", 
-      margin: "0 auto",
-      fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
-    }}>
-      {/* TÍTULO PRINCIPAL */}
-      <div style={{ textAlign: "center", marginBottom: "40px" }}>
-        <h1 style={{ fontSize: "3rem", color: "#4361ee", marginBottom: "10px", fontWeight: "bold" }}>
-          Nossos Serviços
-        </h1>
-        <p style={{ fontSize: "1.3rem", color: "#f72585" }}>
-          Soluções personalizadas para cada ambiente
-        </p>
-      </div>
+    <div style={{ padding: "100px 20px", maxWidth: "1200px", margin: "0 auto" }}>
+      <style>{`
+        * {
+          box-sizing: border-box;
+        }
+        .services-title {
+          font-size: 3rem;
+          color: #4361ee;
+          text-align: center;
+          margin: 0 0 10px 0;
+        }
+        .services-sub {
+          font-size: 1.3rem;
+          color: #f72585;
+          text-align: center;
+          margin: 0 0 50px 0;
+        }
+        .services-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 30px;
+          margin-bottom: 60px;
+        }
+        .service-card {
+          background: white;
+          border-radius: 20px;
+          overflow: hidden;
+          box-shadow: 0 5px 20px rgba(67,97,238,0.1);
+        }
+        .service-img {
+          height: 250px;
+          position: relative;
+        }
+        .service-img img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .service-icon {
+          position: absolute;
+          bottom: -30px;
+          right: 20px;
+          width: 70px;
+          height: 70px;
+          background: #4361ee;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 2.5rem;
+          color: white;
+          border: 4px solid white;
+          z-index: 2;
+        }
+        .service-content {
+          padding: 40px 25px 25px 25px;
+        }
+        .service-name {
+          font-size: 2rem;
+          color: #4361ee;
+          text-align: center;
+          margin: 0 0 20px 0;
+          font-weight: bold;
+        }
+        .benefit, .quality {
+          padding: 20px;
+          border-radius: 15px;
+          margin-bottom: 15px;
+        }
+        .benefit {
+          background: #f8f9fa;
+        }
+        .quality {
+          background: #eef2ff;
+        }
+        .benefit h3, .quality h3 {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          margin: 0 0 10px 0;
+          font-size: 1.2rem;
+        }
+        .benefit h3 { color: #f72585; }
+        .quality h3 { color: #4361ee; }
+        .benefit p, .quality p {
+          margin: 0;
+          line-height: 1.6;
+          color: #2d2d44;
+          word-break: break-word;
+          overflow-wrap: break-word;
+        }
+        .cta {
+          text-align: center;
+          padding: 50px 30px;
+          background: linear-gradient(135deg, #4361ee, #f72585);
+          border-radius: 30px;
+          color: white;
+        }
+        .cta h2 {
+          font-size: 2.2rem;
+          margin: 0 0 15px 0;
+        }
+        .cta p {
+          font-size: 1.2rem;
+          margin: 0 0 25px 0;
+          opacity: 0.95;
+        }
+        .cta-buttons {
+          display: flex;
+          gap: 15px;
+          justify-content: center;
+        }
+        .cta-buttons button {
+          padding: 12px 30px;
+          border: none;
+          border-radius: 50px;
+          font-size: 1.1rem;
+          font-weight: bold;
+          cursor: pointer;
+        }
+        .btn-orcamento {
+          background: white;
+          color: #4361ee;
+        }
+        .btn-whatsapp {
+          background: transparent;
+          color: white;
+          border: 2px solid white !important;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+        @media (max-width: 768px) {
+          .services-grid {
+            grid-template-columns: 1fr;
+            gap: 25px;
+          }
+          .services-title { font-size: 2.5rem; }
+          .service-name { font-size: 1.5rem; }
+          .benefit p, .quality p { font-size: 0.95rem; }
+          .cta-buttons { flex-direction: column; align-items: center; }
+          .cta-buttons button { width: 100%; max-width: 300px; }
+          .cta h2 { font-size: 1.8rem; }
+          .cta p { font-size: 1rem; }
+        }
+        @media (max-width: 480px) {
+          .service-name { font-size: 1.3rem; }
+          .benefit p, .quality p { font-size: 0.9rem; }
+        }
+      `}</style>
 
-      {/* CARDS */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "30px", marginBottom: "60px" }}>
-        {services.map((service) => (
-          <div key={service.id} style={{
-            background: "#fff",
-            borderRadius: "20px",
-            overflow: "hidden",
-            boxShadow: "0 10px 30px rgba(67, 97, 238, 0.1)",
-            border: "1px solid #e9ecef"
-          }}>
-            {/* IMAGEM COM ÍCONE FLUTUANTE */}
-            <div style={{ height: "250px", overflow: "hidden", position: "relative" }}>
-              <img src={service.image} alt={service.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-              <div style={{
-                position: "absolute",
-                bottom: "-25px",
-                right: "20px",
-                width: "70px",
-                height: "70px",
-                background: "#4361ee",
-                borderRadius: "50%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: "2.5rem",
-                color: "white",
-                border: "4px solid white",
-                boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
-                zIndex: "10"
-              }}>
-                {service.icon}
-              </div>
+      <h1 className="services-title">Nossos Serviços</h1>
+      <p className="services-sub">Soluções personalizadas para cada ambiente</p>
+
+      <div className="services-grid">
+        {services.map(s => (
+          <div key={s.id} className="service-card">
+            <div className="service-img">
+              <img src={s.image} alt={s.title} />
+              <div className="service-icon">{s.icon}</div>
             </div>
-
-            {/* CONTEÚDO */}
-            <div style={{ padding: "40px 25px 25px 25px" }}>
-              {/* TÍTULO DO SERVIÇO */}
-              <h2 style={{ 
-                fontSize: "2rem", 
-                color: "#4361ee", 
-                marginBottom: "20px",
-                fontWeight: "bold",
-                textAlign: "center"
-              }}>
-                {service.title}
-              </h2>
-
-              {/* BENEFÍCIO */}
-              <div style={{ background: "#f8f9fa", padding: "20px", borderRadius: "12px", marginBottom: "15px" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
-                  <span style={{ fontSize: "1.5rem" }}>✨</span>
-                  <h3 style={{ fontSize: "1.2rem", color: "#f72585", margin: 0, fontWeight: "600" }}>Benefício</h3>
-                </div>
-                <p style={{ 
-                  fontSize: "1rem", 
-                  color: "#2d2d44", 
-                  lineHeight: "1.6", 
-                  margin: 0,
-                  wordBreak: "break-word",
-                  overflowWrap: "break-word"
-                }}>
-                  {service.benefit}
-                </p>
+            <div className="service-content">
+              <h2 className="service-name">{s.title}</h2>
+              <div className="benefit">
+                <h3><span>✨</span>Benefício</h3>
+                <p>{s.benefit}</p>
               </div>
-
-              {/* QUALIDADE */}
-              <div style={{ background: "#eef2ff", padding: "20px", borderRadius: "12px" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
-                  <span style={{ fontSize: "1.5rem" }}>🏆</span>
-                  <h3 style={{ fontSize: "1.2rem", color: "#4361ee", margin: 0, fontWeight: "600" }}>Qualidade</h3>
-                </div>
-                <p style={{ 
-                  fontSize: "1rem", 
-                  color: "#2d2d44", 
-                  lineHeight: "1.6", 
-                  margin: 0,
-                  wordBreak: "break-word",
-                  overflowWrap: "break-word"
-                }}>
-                  {service.quality}
-                </p>
+              <div className="quality">
+                <h3><span>🏆</span>Qualidade</h3>
+                <p>{s.quality}</p>
               </div>
             </div>
           </div>
         ))}
       </div>
 
-      {/* CHAMADA FINAL */}
-      <div style={{
-        textAlign: "center",
-        padding: "50px 30px",
-        background: "linear-gradient(135deg, #4361ee, #f72585)",
-        borderRadius: "30px",
-        color: "white"
-      }}>
-        <h2 style={{ fontSize: "2.2rem", marginBottom: "15px", fontWeight: "bold" }}>Venha nos conhecer!</h2>
-        <p style={{ fontSize: "1.2rem", marginBottom: "25px" }}>Faça um orçamento sem compromisso</p>
-        <div style={{ display: "flex", gap: "15px", justifyContent: "center", flexWrap: "wrap" }}>
-          <button onClick={() => navigate('/contato')} style={{
-            padding: "12px 30px",
-            background: "white",
-            color: "#4361ee",
-            border: "none",
-            borderRadius: "50px",
-            fontSize: "1.1rem",
-            fontWeight: "bold",
-            cursor: "pointer"
-          }}>
-            Fazer orçamento
-          </button>
-          <button onClick={() => window.open('https://wa.me/5581994732981', '_blank')} style={{
-            padding: "12px 30px",
-            background: "transparent",
-            color: "white",
-            border: "2px solid white",
-            borderRadius: "50px",
-            fontSize: "1.1rem",
-            fontWeight: "bold",
-            cursor: "pointer",
-            display: "flex",
-            alignItems: "center",
-            gap: "8px"
-          }}>
+      <div className="cta">
+        <h2>Venha nos conhecer!</h2>
+        <p>Faça um orçamento sem compromisso e descubra como podemos transformar seu espaço</p>
+        <div className="cta-buttons">
+          <button className="btn-orcamento" onClick={() => navigate('/contato')}>Fazer orçamento</button>
+          <button className="btn-whatsapp" onClick={() => window.open('https://wa.me/5581994732981', '_blank')}>
             <i className="fab fa-whatsapp"></i> WhatsApp
           </button>
         </div>
       </div>
-
-      {/* CSS RESPONSIVO - CORREÇÃO DOS TEXTOS */}
-      <style>{`
-        @media (max-width: 768px) {
-          div[style*="grid-template-columns: repeat(2, 1fr)"] {
-            grid-template-columns: 1fr !important;
-          }
-          h1 { font-size: 2.5rem !important; }
-          h2 { font-size: 1.5rem !important; }
-          p {
-            font-size: 0.95rem !important;
-            word-break: break-word !important;
-            white-space: normal !important;
-            overflow: visible !important;
-          }
-          div[style*="display: flex; gap: 15px; justify-content: center"] {
-            flex-direction: column !important;
-            align-items: center !important;
-          }
-          button { width: 100% !important; max-width: 300px !important; }
-        }
-        @media (max-width: 480px) {
-          h2 { font-size: 1.3rem !important; }
-          p { font-size: 0.9rem !important; }
-        }
-      `}</style>
     </div>
   );
 };
