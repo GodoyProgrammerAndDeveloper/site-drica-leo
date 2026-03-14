@@ -33,7 +33,7 @@ a[href*="whatsapp"] {
   z-index: 9999 !important;
 }
 
-/* ===== CELULAR - CORREÇÃO TOTAL ===== */
+/* ===== CELULAR - CORREÇÃO FORÇADA ===== */
 @media (max-width: 768px) {
   /* FORÇAR TODOS OS ELEMENTOS */
   body, html, .app, main, .container, 
@@ -97,10 +97,11 @@ a[href*="whatsapp"] {
     word-wrap: break-word !important;
   }
 
-  /* CARDS DE BENEFÍCIO/QUALIDADE (o que apareceu no print) */
-  [style*="background: #f9f9f9"], 
-  [style*="background: #f5f3ff"],
-  [style*="border-radius: 15px"][style*="padding"] {
+  /* CARDS DE BENEFÍCIO/QUALIDADE */
+  [style*="background: #f8f9fa"], 
+  [style*="background: #eef2ff"],
+  [style*="background: #f9f9f9"],
+  [style*="background: #f5f3ff"] {
     width: 100% !important;
     padding: 20px 15px !important;
     margin: 10px 0 !important;
@@ -108,9 +109,8 @@ a[href*="whatsapp"] {
     box-shadow: 0 2px 8px rgba(0,0,0,0.05) !important;
   }
 
-  [style*="color: #f43f5e"], 
-  [style*="color: '#f43f5e'"],
-  h4[style*="color: #f43f5e"] {
+  [style*="color: #f72585"], 
+  [style*="color: '#f72585'"] {
     font-size: 1.2rem !important;
     text-align: center !important;
     margin-bottom: 10px !important;
@@ -118,11 +118,10 @@ a[href*="whatsapp"] {
     align-items: center !important;
     justify-content: center !important;
     gap: 8px !important;
-    color: #f43f5e !important;
+    color: #f72585 !important;
   }
 
-  [style*="color: #8b5cf6"],
-  h4[style*="color: #8b5cf6"] {
+  [style*="color: #4361ee"] {
     font-size: 1.2rem !important;
     text-align: center !important;
     margin-bottom: 10px !important;
@@ -130,13 +129,7 @@ a[href*="whatsapp"] {
     align-items: center !important;
     justify-content: center !important;
     gap: 8px !important;
-    color: #8b5cf6 !important;
-  }
-
-  [style*="background: #f9f9f9"] span,
-  [style*="background: #f5f3ff"] span,
-  [style*="font-size: 1.5rem"] {
-    font-size: 1.5rem !important;
+    color: #4361ee !important;
   }
 
   /* HERO SECTION */
@@ -180,35 +173,26 @@ a[href*="whatsapp"] {
     text-align: center !important;
   }
 
-  /* SERVIÇOS */
+  /* SERVIÇOS - GRID */
+  [style*="grid-template-columns: repeat(2, 1fr)"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+
   [style*="grid-template-columns: repeat(3, 1fr)"] {
     display: flex !important;
     flex-direction: column !important;
     gap: 20px !important;
   }
 
+  [style*="grid-template-columns: repeat(2, 1fr)"] > div,
   [style*="grid-template-columns: repeat(3, 1fr)"] > div {
     width: 100% !important;
     margin: 0 !important;
-    padding: 25px 15px !important;
-    background: white !important;
-    border-radius: 15px !important;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
-  }
-
-  [style*="font-size: 3rem; margin-bottom: 15px"] {
-    font-size: 2.5rem !important;
-    margin-bottom: 10px !important;
-    text-align: center !important;
   }
 
   /* DEPOIMENTOS */
-  [style*="grid-template-columns: repeat(3, 1fr)"]:has([style*="background: white; padding: 30px"]) {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 20px !important;
-  }
-
   [style*="background: white; padding: 30px; border-radius: 15px"] {
     width: 100% !important;
     padding: 20px 15px !important;
@@ -250,22 +234,6 @@ a[href*="whatsapp"] {
     flex-shrink: 0 !important;
   }
 
-  [style*="background: #25d366"] { background: #25d366 !important; }
-  [style*="background: linear-gradient(45deg"] { background: linear-gradient(45deg, #f09433, #d62976, #962fbf, #4f5bd5) !important; }
-  [style*="background: #8b5cf6"] { background: #8b5cf6 !important; }
-  [style*="background: #f43f5e"] { background: #f43f5e !important; }
-
-  h3[style*="font-size: 1.3rem"] {
-    font-size: 1.1rem !important;
-    text-align: left !important;
-    margin-bottom: 5px !important;
-  }
-
-  p[style*="font-size: 1.1rem"] {
-    font-size: 0.9rem !important;
-    text-align: left !important;
-  }
-
   /* VALORES */
   [style*="grid-template-columns: repeat(4, 1fr)"] {
     display: grid !important;
@@ -303,6 +271,11 @@ a[href*="whatsapp"] {
 
   [style*="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))"] > div {
     width: 100% !important;
+  }
+
+  /* CHAMADA FINAL */
+  [style*="background: linear-gradient(135deg, #4361ee, #f72585)"] {
+    padding: 40px 20px !important;
   }
 }
 
