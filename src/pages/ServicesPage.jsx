@@ -137,7 +137,7 @@ const ServicesPage = () => {
 
             {/* CONTEÚDO */}
             <div style={{ padding: "40px 25px 25px 25px" }}>
-              {/* TÍTULO DO SERVIÇO (AGORA FORA DA IMAGEM) */}
+              {/* TÍTULO DO SERVIÇO - AGORA FORA DA IMAGEM */}
               <h2 style={{ 
                 fontSize: "2rem", 
                 color: "#4361ee", 
