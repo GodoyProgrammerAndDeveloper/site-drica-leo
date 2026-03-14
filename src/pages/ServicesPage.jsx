@@ -311,4 +311,100 @@ const ServicesPage = () => {
         .btn-whatsapp {
           background: transparent;
           color: white;
-          border: 2
+          border: 2px solid white !important;
+          display: flex;
+          alignItems: center;
+          gap: 8px;
+        }
+        @media (max-width: 768px) {
+          .grid {
+            grid-template-columns: 1fr;
+          }
+          h1 {
+            font-size: 2.5rem;
+          }
+          h2 {
+            font-size: 1.8rem;
+          }
+          .content {
+            padding: 35px 15px 20px;
+          }
+          .cta-buttons {
+            flex-direction: column;
+            align-items: center;
+          }
+          .cta-buttons button {
+            width: 100%;
+            max-width: 300px;
+          }
+          .cta h3 {
+            font-size: 2rem;
+          }
+          div[style*="position: fixed; top: 0; left: 0; width: 100%;"] {
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px;
+          }
+          div[style*="display: flex; gap: 20px; align-items: center;"] {
+            flex-wrap: wrap;
+            justify-content: center;
+          }
+        }
+        @media (max-width: 480px) {
+          h1 {
+            font-size: 2rem;
+          }
+          h2 {
+            font-size: 1.5rem;
+          }
+          .benefit h3, .quality h3 {
+            font-size: 1rem;
+          }
+        }
+      `}</style>
+
+      <h1>Nossos Serviços</h1>
+      <p className="sub">Soluções personalizadas para cada ambiente</p>
+
+      <div className="grid">
+        {services.map(s => (
+          <div key={s.id} className="card">
+            <div className="img-box">
+              <img src={s.image} alt={s.title} />
+              <div className="icon-box">{s.icon}</div>
+            </div>
+            <div className="content">
+              <h2>{s.title}</h2>
+              <div className="benefit">
+                <h3><span>✨</span> Benefício</h3>
+                <p>{s.benefit}</p>
+              </div>
+              <div className="quality">
+                <h3><span>🏆</span> Qualidade</h3>
+                <p>{s.quality}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="cta">
+        <h3>Venha nos conhecer!</h3>
+        <p>Faça um orçamento sem compromisso e descubra como podemos transformar seu espaço</p>
+        <div className="cta-buttons">
+          <button className="btn-orcamento" onClick={() => navigate('/contato')}>
+            Fazer orçamento
+          </button>
+          <button className="btn-whatsapp" onClick={() => window.open('https://wa.me/5581994732981', '_blank')}>
+            <i className="fab fa-whatsapp"></i> WhatsApp
+          </button>
+        </div>
+      </div>
+
+      {/* BOTÃO VOLTAR AO TOPO */}
+      <BackToTop />
+    </div>
+  );
+};
+
+export default ServicesPage;
