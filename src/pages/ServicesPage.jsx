@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const ServicesPage = () => {
@@ -59,7 +59,8 @@ const ServicesPage = () => {
     <div style={{
       padding: "100px 20px 40px",
       maxWidth: "1200px",
-      margin: "0 auto"
+      margin: "0 auto",
+      backgroundColor: "#fef6f9"
     }}>
       {/* CABEÇALHO */}
       <div style={{
@@ -68,22 +69,23 @@ const ServicesPage = () => {
       }}>
         <h1 style={{
           fontSize: "3rem",
-          color: "#8b5cf6",
-          marginBottom: "20px"
+          color: "#4361ee",
+          marginBottom: "20px",
+          fontWeight: "bold"
         }}>
           Nossos Serviços
         </h1>
         <p style={{
           fontSize: "1.3rem",
-          color: "#666",
+          color: "#f72585",
           maxWidth: "800px",
           margin: "0 auto"
         }}>
-          Mais do que organização, transformamos espaços para transformar vidas
+          Transformamos sua casa com organização profissional e qualidade
         </p>
       </div>
 
-      {/* CARDS DE SERVIÇOS - COM IMAGENS */}
+      {/* CARDS DE SERVIÇOS */}
       <div style={{
         display: "grid",
         gridTemplateColumns: "repeat(2, 1fr)",
@@ -97,12 +99,12 @@ const ServicesPage = () => {
               background: "white",
               borderRadius: "20px",
               overflow: "hidden",
-              boxShadow: "0 10px 30px rgba(139, 92, 246, 0.1)",
-              border: "1px solid #f0f0f0",
-              transition: "transform 0.2s"
+              boxShadow: "0 10px 30px rgba(67, 97, 238, 0.1)",
+              border: "1px solid #e0e0e0",
+              transition: "transform 0.3s",
+              cursor: "pointer"
             }}
-            onMouseEnter={(e) => e.currentTarget.style.transform = "translateY(-5px)"}
-            onMouseLeave={(e) => e.currentTarget.style.transform = "translateY(0)"}
+            onClick={() => navigate(`/servicos/${service.id}`)}
           >
             {/* IMAGEM */}
             <div style={{
@@ -118,22 +120,20 @@ const ServicesPage = () => {
                   height: "100%",
                   objectFit: "cover"
                 }}
-                onError={(e) => {
-                  e.target.src = "/images/logo.png"; // fallback caso a imagem não exista
-                }}
               />
               <div style={{
                 position: "absolute",
                 top: "20px",
                 left: "20px",
-                background: "rgba(139, 92, 246, 0.9)",
+                background: "#4361ee",
                 color: "white",
                 padding: "10px 15px",
                 borderRadius: "30px",
                 fontSize: "1.5rem",
                 display: "flex",
                 alignItems: "center",
-                gap: "10px"
+                gap: "10px",
+                boxShadow: "0 4px 10px rgba(0,0,0,0.2)"
               }}>
                 <span>{service.icon}</span>
                 <span style={{ fontSize: "1rem", fontWeight: "600" }}>{service.title}</span>
@@ -144,14 +144,15 @@ const ServicesPage = () => {
             <div style={{ padding: "30px" }}>
               {/* BENEFÍCIO */}
               <div style={{
-                background: "#f9f9f9",
+                background: "#f8f9fa",
                 padding: "20px",
                 borderRadius: "15px",
-                marginBottom: "20px"
+                marginBottom: "20px",
+                border: "1px solid #e9ecef"
               }}>
                 <h3 style={{
                   fontSize: "1.2rem",
-                  color: "#f43f5e",
+                  color: "#f72585",
                   marginBottom: "10px",
                   display: "flex",
                   alignItems: "center",
@@ -161,7 +162,7 @@ const ServicesPage = () => {
                   Benefício
                 </h3>
                 <p style={{
-                  color: "#444",
+                  color: "#2d2d44",
                   fontSize: "1rem",
                   lineHeight: "1.7",
                   margin: 0
@@ -170,13 +171,14 @@ const ServicesPage = () => {
 
               {/* QUALIDADE */}
               <div style={{
-                background: "#f5f3ff",
+                background: "#f0f4ff",
                 padding: "20px",
-                borderRadius: "15px"
+                borderRadius: "15px",
+                border: "1px solid #d0e0ff"
               }}>
                 <h3 style={{
                   fontSize: "1.2rem",
-                  color: "#8b5cf6",
+                  color: "#4361ee",
                   marginBottom: "10px",
                   display: "flex",
                   alignItems: "center",
@@ -186,7 +188,7 @@ const ServicesPage = () => {
                   Qualidade
                 </h3>
                 <p style={{
-                  color: "#444",
+                  color: "#2d2d44",
                   fontSize: "1rem",
                   lineHeight: "1.7",
                   margin: 0
@@ -201,14 +203,15 @@ const ServicesPage = () => {
       <div style={{
         textAlign: "center",
         padding: "60px 40px",
-        background: "linear-gradient(135deg, #8b5cf6, #f43f5e)",
+        background: "linear-gradient(135deg, #4361ee, #f72585)",
         borderRadius: "30px",
-        boxShadow: "0 20px 40px rgba(139, 92, 246, 0.3)"
+        boxShadow: "0 20px 40px rgba(67, 97, 238, 0.3)"
       }}>
         <h2 style={{
           fontSize: "2.5rem",
           color: "white",
-          marginBottom: "20px"
+          marginBottom: "20px",
+          fontWeight: "bold"
         }}>
           Venha nos conhecer!
         </h2>
@@ -231,13 +234,14 @@ const ServicesPage = () => {
             style={{
               padding: "15px 40px",
               background: "white",
-              color: "#8b5cf6",
+              color: "#4361ee",
               border: "none",
               borderRadius: "50px",
               fontSize: "1.2rem",
               fontWeight: "600",
               cursor: "pointer",
-              boxShadow: "0 5px 15px rgba(0,0,0,0.2)"
+              boxShadow: "0 5px 15px rgba(0,0,0,0.2)",
+              transition: "transform 0.2s"
             }}
           >
             Fazer orçamento
@@ -252,13 +256,42 @@ const ServicesPage = () => {
               borderRadius: "50px",
               fontSize: "1.2rem",
               fontWeight: "600",
-              cursor: "pointer"
+              cursor: "pointer",
+              transition: "transform 0.2s"
             }}
           >
             <i className="fab fa-whatsapp"></i> WhatsApp
           </button>
         </div>
       </div>
+
+      {/* CSS RESPONSIVO INLINE */}
+      <style>{`
+        @media (max-width: 768px) {
+          div[style*="grid-template-columns: repeat(2, 1fr)"] {
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+          }
+          
+          h1 {
+            font-size: 2.5rem !important;
+          }
+          
+          h2 {
+            font-size: 2rem !important;
+          }
+          
+          div[style*="display: flex; gap: 20px; justify-content: center"] {
+            flex-direction: column !important;
+            align-items: center !important;
+          }
+          
+          button {
+            width: 100% !important;
+            max-width: 300px !important;
+          }
+        }
+      `}</style>
     </div>
   );
 };
