@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
 
@@ -22,14 +22,15 @@ const Header = () => {
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="header-container container">
-        <Link to="/" className="logo" onClick={() => setMenuOpen(false)}>
-          <img src="/images/logo.png" alt="Drica & Leo" className="logo-img" />
+        <Link to="/" className="logo">
+          <img src="/images/logo.png" alt="Drica & Léo" className="logo-img" />
           <div className="logo-text">
-            <h2>Drica & Leo</h2>
+            <h2>Drica & Léo</h2>
             <p>Personal Organizer</p>
           </div>
         </Link>
 
+        {/* Ícone do menu hambúrguer */}
         <button 
           className={`menu-toggle ${menuOpen ? 'active' : ''}`}
           onClick={() => setMenuOpen(!menuOpen)}
@@ -40,6 +41,7 @@ const Header = () => {
           <span></span>
         </button>
 
+        {/* Menu de navegação */}
         <nav className={`nav ${menuOpen ? 'active' : ''}`}>
           <Link to="/" className="nav-link" onClick={() => setMenuOpen(false)}>Início</Link>
           <Link to="/servicos" className="nav-link" onClick={() => setMenuOpen(false)}>Serviços</Link>
