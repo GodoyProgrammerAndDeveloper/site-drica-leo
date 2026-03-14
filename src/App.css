@@ -1,31 +1,13 @@
-/* VARIÁVEIS - Design Feminino e Profissional */
+/* ===== VARIÁVEIS GLOBAIS ===== */
 :root {
   --primary: #4361ee;
-  --primary-light: #4895ef;
-  --primary-dark: #3a0ca3;
   --secondary: #f72585;
-  --secondary-light: #ff5d9e;
-  --secondary-dark: #b5179e;
-  --text-primary: #1e1e2f;
-  --text-secondary: #2d2d44;
+  --text-dark: #2d2d44;
   --text-light: #6c757d;
-  --background: #fef6f9;
+  --bg-light: #fef6f9;
   --white: #ffffff;
-  --gray-100: #f8f9fa;
-  --gray-200: #e9ecef;
-  --gray-300: #dee2e6;
-  --gradient-primary: linear-gradient(135deg, #4361ee, #f72585);
-  --gradient-soft: linear-gradient(135deg, #e0c3fc, #fcc8e0);
-  --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
-  --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
-  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
-  --shadow-colored: 0 10px 30px rgba(67, 97, 238, 0.15);
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
-  --radius-xl: 30px;
-  --font-primary: 'Poppins', -apple-system, sans-serif;
-  --font-secondary: 'Montserrat', sans-serif;
+  --shadow: 0 10px 30px rgba(67, 97, 238, 0.1);
+  --radius: 20px;
 }
 
 * {
@@ -34,111 +16,78 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
-  font-family: var(--font-primary);
-  color: var(--text-primary);
-  background: var(--background);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg-light);
+  color: var(--text-dark);
   line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-secondary);
-  color: var(--primary);
-  font-weight: 600;
-  letter-spacing: -0.02em;
+/* ===== LAYOUT PRINCIPAL ===== */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-h1 {
-  font-size: 3.5rem;
-  line-height: 1.2;
-  margin-bottom: 1rem;
+main {
+  flex: 1;
+  padding-top: 80px;
 }
 
-h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-  position: relative;
-  display: inline-block;
-}
-
-h2::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  width: 60px;
-  height: 4px;
-  background: var(--gradient-primary);
-  border-radius: var(--radius-full);
-}
-
-p {
-  color: var(--text-secondary);
-  font-size: 1.1rem;
-  line-height: 1.8;
-  margin-bottom: 1rem;
-}
-
+/* ===== CONTAINER ===== */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-.app-layout {
-  display: flex;
-  min-height: 100vh;
+/* ===== DESKTOP (TELA GRANDE) ===== */
+@media (min-width: 1025px) {
+  /* Mantém o layout original do desktop */
+  h1 { font-size: 3.5rem; }
+  h2 { font-size: 2.5rem; }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
 }
 
-.main-content {
-  flex: 1;
-  margin-left: 280px;
-  padding: 40px;
-  background: var(--white);
-  border-radius: var(--radius-xl) 0 0 var(--radius-xl);
-  box-shadow: var(--shadow-lg);
-}
-
-/* RESPONSIVIDADE - CELULAR */
-@media (max-width: 1024px) {
-  .main-content {
-    margin-left: 0;
-    padding: 20px;
-    border-radius: 0;
-  }
-}
-
-@media (max-width: 768px) {
-  /* Ajustes gerais */
+/* ===== TABLET (TELAS MÉDIAS) ===== */
+@media (min-width: 769px) and (max-width: 1024px) {
   .container {
-    padding: 0 15px !important;
+    padding: 0 30px;
+  }
+  
+  h1 { font-size: 3rem; }
+  h2 { font-size: 2.2rem; }
+  
+  .grid-3, .grid-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* ===== CELULAR (TELA PEQUENA) - VERSÃO OTIMIZADA ===== */
+@media (max-width: 768px) {
+  /* ===== CONTAINER ===== */
+  .container {
+    padding: 0 20px !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
-  /* Hero section */
-  section[style*="grid-template-columns: 1fr 1fr"] {
-    grid-template-columns: 1fr !important;
-    gap: 20px !important;
-  }
-
-  section[style*="grid-template-columns: 1fr 1fr"] > div:first-child {
-    text-align: center !important;
-    padding: 0 10px !important;
-  }
-
-  /* Títulos */
+  /* ===== TIPOGRAFIA ===== */
   h1 {
-    font-size: 2.5rem !important;
+    font-size: 2.2rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 10px !important;
     text-align: center !important;
   }
 
   h2 {
-    font-size: 2rem !important;
+    font-size: 1.8rem !important;
     text-align: center !important;
-    display: block !important;
+    margin-bottom: 25px !important;
+    width: 100% !important;
   }
 
   h2::after {
@@ -146,75 +95,166 @@ p {
     transform: translateX(-50%) !important;
   }
 
-  p {
-    font-size: 1rem !important;
-    text-align: justify !important;
+  h3 {
+    font-size: 1.3rem !important;
+    text-align: center !important;
   }
 
-  /* Botões */
+  p {
+    font-size: 1rem !important;
+    line-height: 1.7 !important;
+    text-align: justify !important;
+    margin-bottom: 15px !important;
+  }
+
+  /* ===== HERO SECTION ===== */
+  section[style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+    margin-bottom: 50px !important;
+  }
+
+  section[style*="grid-template-columns: 1fr 1fr"] > div:first-child {
+    text-align: center !important;
+    padding: 0 10px !important;
+  }
+
+  div[style*="height: 400px"] {
+    height: 250px !important;
+    width: 100% !important;
+    border-radius: 15px !important;
+    margin: 0 auto !important;
+  }
+
+  div[style*="height: 400px"] img {
+    border-radius: 15px !important;
+  }
+
+  /* ===== BOTÕES ===== */
   div[style*="display: flex; gap: 15px"] {
     flex-direction: column !important;
     align-items: center !important;
+    gap: 12px !important;
+    width: 100% !important;
   }
 
-  button {
+  button, 
+  a[style*="padding: 12px 30px"] {
     width: 100% !important;
     max-width: 280px !important;
-    margin: 5px 0 !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    display: inline-block !important;
   }
 
-  /* Serviços */
+  /* ===== CARDS DE SERVIÇO ===== */
   div[style*="grid-template-columns: repeat(3, 1fr)"] {
     grid-template-columns: 1fr !important;
     gap: 20px !important;
+    padding: 0 10px !important;
   }
 
-  /* Depoimentos */
-  div[style*="grid-template-columns: repeat(3, 1fr)"]:has(div[style*="testimonial"]) {
+  div[style*="grid-template-columns: repeat(3, 1fr)"] > div {
+    margin: 0 !important;
+    padding: 25px 15px !important;
+    border-radius: 20px !important;
+    box-shadow: var(--shadow) !important;
+    transition: transform 0.2s !important;
+  }
+
+  div[style*="font-size: 3rem; margin-bottom: 15px"] {
+    font-size: 2.5rem !important;
+    margin-bottom: 10px !important;
+  }
+
+  /* ===== DEPOIMENTOS ===== */
+  div[style*="grid-template-columns: repeat(3, 1fr)"]:has(div[style*="background: white; padding: 30px"]) {
     grid-template-columns: 1fr !important;
     gap: 20px !important;
   }
 
-  div[style*="grid-template-columns: repeat(3, 1fr)"] > div {
-    margin: 0 10px !important;
+  div[style*="background: white; padding: 30px; border-radius: 15px"] {
+    padding: 20px 15px !important;
+    margin: 0 !important;
   }
 
-  /* Cards de contato */
+  div[style*="display: flex; align-items: center; gap: 15px"] {
+    gap: 10px !important;
+    justify-content: flex-start !important;
+  }
+
+  div[style*="width: 50px; height: 50px; border-radius: 50%"] {
+    width: 45px !important;
+    height: 45px !important;
+    font-size: 1.8rem !important;
+  }
+
+  h4 {
+    font-size: 1rem !important;
+    text-align: left !important;
+  }
+
+  div[style*="color: #ffc107; font-size: 1.2rem"] {
+    font-size: 1rem !important;
+    text-align: center !important;
+  }
+
+  /* ===== CARDS DE CONTATO ===== */
   div[style*="grid-template-columns: repeat(2, 1fr)"] {
     grid-template-columns: 1fr !important;
     gap: 15px !important;
   }
 
-  /* Valores */
+  div[style*="grid-template-columns: repeat(2, 1fr)"] > div {
+    padding: 20px 15px !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 15px !important;
+  }
+
+  div[style*="width: 70px; height: 70px"] {
+    width: 50px !important;
+    height: 50px !important;
+    font-size: 2rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  div[style*="grid-template-columns: repeat(2, 1fr)"] > div > div {
+    flex: 1 !important;
+  }
+
+  h3[style*="font-size: 1.3rem"] {
+    font-size: 1.1rem !important;
+    text-align: left !important;
+  }
+
+  p[style*="font-size: 1.1rem"] {
+    font-size: 0.9rem !important;
+    text-align: left !important;
+    margin-bottom: 5px !important;
+  }
+
+  /* ===== VALORES ===== */
   div[style*="grid-template-columns: repeat(4, 1fr)"] {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 15px !important;
+    padding: 0 10px !important;
   }
 
   div[style*="grid-template-columns: repeat(4, 1fr)"] > div {
     padding: 20px 15px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
   }
 
-  /* CTA final */
-  section[style*="background: linear-gradient"] {
-    padding: 40px 20px !important;
+  div[style*="grid-template-columns: repeat(4, 1fr)"] > div div[style*="font-size: 3rem"] {
+    font-size: 2.2rem !important;
+    margin-bottom: 10px !important;
   }
 
-  section[style*="background: linear-gradient"] h2 {
-    font-size: 2rem !important;
-  }
-
-  section[style*="background: linear-gradient"] p {
-    font-size: 1rem !important;
-  }
-
-  /* Imagem da hero */
-  div[style*="height: 400px"] {
-    height: 250px !important;
-    margin-top: 20px !important;
-  }
-
-  /* Horários */
+  /* ===== HORÁRIOS ===== */
   div[style*="display: flex; justify-content: center; gap: 40px"] {
     flex-direction: column !important;
     gap: 15px !important;
@@ -224,19 +264,58 @@ p {
   div[style*="display: flex; justify-content: center; gap: 40px"] > div {
     width: 100% !important;
     text-align: center !important;
+    background: var(--white) !important;
+    padding: 12px !important;
+    border-radius: 10px !important;
   }
 
-  /* Formulário */
+  /* ===== FORMULÁRIO ===== */
   form[style*="max-width: 600px"] {
     width: 100% !important;
     padding: 0 10px !important;
   }
 
   input, textarea {
-    font-size: 16px !important; /* Evita zoom no iOS */
+    font-size: 16px !important;
+    padding: 12px !important;
+    border-radius: 10px !important;
+    border: 1px solid #e0e0e0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
-  /* Logo */
+  button[type="submit"] {
+    width: 100% !important;
+    margin-top: 10px !important;
+  }
+
+  /* ===== SOBRE NÓS ===== */
+  div[style*="background: #f9f9f9; padding: 40px; border-radius: 20px"] {
+    padding: 25px 15px !important;
+  }
+
+  div[style*="background: #f9f9f9; padding: 40px; border-radius: 20px"] p {
+    text-align: justify !important;
+  }
+
+  /* ===== CTA FINAL ===== */
+  section[style*="background: linear-gradient"] {
+    padding: 40px 20px !important;
+    border-radius: 20px !important;
+  }
+
+  section[style*="background: linear-gradient"] h2 {
+    font-size: 1.8rem !important;
+    color: white !important;
+  }
+
+  section[style*="background: linear-gradient"] p {
+    font-size: 1rem !important;
+    text-align: center !important;
+    color: rgba(255,255,255,0.9) !important;
+  }
+
+  /* ===== LOGO ===== */
   div[style*="text-align: center; margin-bottom: 20px"] img {
     width: 120px !important;
     height: 120px !important;
@@ -244,116 +323,119 @@ p {
 
   div[style*="text-align: center; margin-bottom: 20px"] p {
     font-size: 0.8rem !important;
+    text-align: center !important;
+    color: var(--text-light) !important;
   }
 
-  /* Selo certificado */
+  /* ===== SELO CERTIFICADO ===== */
   div[style*="position: fixed; top: 120px; right: 20px"] {
-    top: 80px !important;
+    top: 70px !important;
     right: 10px !important;
-    padding: 5px 12px !important;
-    font-size: 0.75rem !important;
+    padding: 6px 12px !important;
+    font-size: 0.7rem !important;
+    border-radius: 30px !important;
+    z-index: 999 !important;
   }
 
   div[style*="position: fixed; top: 120px; right: 20px"] span:first-child {
-    font-size: 1rem !important;
+    font-size: 0.9rem !important;
   }
 
-  /* Cards de depoimento */
-  div[style*="background: white; padding: 30px; border-radius: 15px"] {
-    padding: 20px !important;
-  }
-
-  div[style*="display: flex; align-items: center; gap: 15px; margin-bottom: 15px"] {
-    gap: 10px !important;
-  }
-
-  div[style*="width: 50px; height: 50px; border-radius: 50%"] {
-    width: 40px !important;
-    height: 40px !important;
-    font-size: 1.5rem !important;
-  }
-
-  h4 {
-    font-size: 1rem !important;
-  }
-
-  /* Botão voltar ao topo */
+  /* ===== BOTÃO VOLTAR AO TOPO ===== */
   button[style*="position: fixed; bottom: 30px; right: 30px"] {
     bottom: 20px !important;
     right: 20px !important;
-    width: 40px !important;
-    height: 40px !important;
-    font-size: 1.2rem !important;
+    width: 45px !important;
+    height: 45px !important;
+    font-size: 1.3rem !important;
+    z-index: 999 !important;
+  }
+
+  /* ===== MENU HAMBÚRGUER ===== */
+  .menu-toggle {
+    display: flex !important;
+  }
+
+  .nav {
+    position: fixed !important;
+    top: 0 !important;
+    right: -100% !important;
+    width: 85% !important;
+    max-width: 320px !important;
+    height: 100vh !important;
+    background: white !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    padding: 40px 25px !important;
+    box-shadow: -5px 0 20px rgba(0,0,0,0.1) !important;
+    transition: right 0.3s ease !important;
+    z-index: 1000 !important;
+    gap: 20px !important;
+  }
+
+  .nav.active {
+    right: 0 !important;
+  }
+
+  .nav-link {
+    font-size: 1.1rem !important;
+    padding: 12px !important;
+    width: 100% !important;
+    text-align: center !important;
+    border-radius: 10px !important;
+  }
+
+  .nav-link:hover {
+    background: var(--bg-light) !important;
+  }
+
+  .nav-social {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 10px !important;
+    margin-top: 20px !important;
+  }
+
+  .nav-link.whatsapp, 
+  .nav-link.instagram {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 12px !important;
   }
 }
 
-/* CELULAR PEQUENO (menos de 480px) */
+/* ===== CELULAR PEQUENO (MENOS DE 480px) ===== */
 @media (max-width: 480px) {
   h1 {
-    font-size: 2rem !important;
-  }
-
-  h2 {
     font-size: 1.8rem !important;
   }
 
-  p {
-    font-size: 0.9rem !important;
+  h2 {
+    font-size: 1.5rem !important;
+  }
+
+  div[style*="grid-template-columns: repeat(2, 1fr)"] {
+    grid-template-columns: 1fr !important;
   }
 
   div[style*="grid-template-columns: repeat(4, 1fr)"] {
     grid-template-columns: 1fr !important;
   }
 
-  div[style*="grid-template-columns: repeat(4, 1fr)"] > div {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-  }
-
-  div[style*="grid-template-columns: repeat(4, 1fr)"] > div div[style*="font-size: 3rem"] {
-    margin-bottom: 10px !important;
-  }
-
-  /* Cards de serviço */
-  div[style*="grid-template-columns: repeat(3, 1fr)"] > div {
-    margin: 0 !important;
-  }
-
-  div[style*="font-size: 3rem; margin-bottom: 15px"] {
-    font-size: 2.5rem !important;
-  }
-
-  h3 {
-    font-size: 1.2rem !important;
-  }
-
-  /* Depoimentos */
-  div[style*="grid-template-columns: repeat(3, 1fr)"]:has(div[style*="testimonial"]) > div {
-    padding: 15px !important;
-  }
-
-  div[style*="color: #ffc107; font-size: 1.2rem"] {
-    font-size: 1rem !important;
-  }
-
-  /* Contato */
-  div[style*="grid-template-columns: repeat(2, 1fr)"] > div {
-    padding: 20px !important;
-  }
-
   div[style*="width: 70px; height: 70px"] {
-    width: 50px !important;
-    height: 50px !important;
+    width: 45px !important;
+    height: 45px !important;
     font-size: 1.8rem !important;
   }
 
-  h3[style*="font-size: 1.3rem"] {
-    font-size: 1.1rem !important;
+  .nav {
+    width: 100% !important;
+    max-width: none !important;
   }
 
-  p[style*="font-size: 1.1rem"] {
-    font-size: 0.9rem !important;
+  div[style*="position: fixed; top: 120px; right: 20px"] {
+    top: 60px !important;
+    padding: 4px 10px !important;
+    font-size: 0.65rem !important;
   }
 }
