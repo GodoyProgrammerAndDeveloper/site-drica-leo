@@ -34,7 +34,6 @@ const Header = () => {
           </div>
         </Link>
 
-        {/* Ícone do menu hambúrguer */}
         <button 
           className={`menu-toggle ${menuOpen ? 'active' : ''}`}
           onClick={() => setMenuOpen(!menuOpen)}
@@ -45,7 +44,6 @@ const Header = () => {
           <span></span>
         </button>
 
-        {/* Menu de navegação */}
         <nav className={`nav ${menuOpen ? 'active' : ''}`}>
           <Link to="/" className="nav-link" onClick={handleLinkClick}>Início</Link>
           <Link to="/servicos" className="nav-link" onClick={handleLinkClick}>Serviços</Link>
