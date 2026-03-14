@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Header from './components/Layout/Header';
 import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
 import AboutPage from './pages/AboutPage';
@@ -12,8 +11,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="app">
-        <Header />
-        <main className="main-content">
+        <main>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/servicos" element={<ServicesPage />} />
