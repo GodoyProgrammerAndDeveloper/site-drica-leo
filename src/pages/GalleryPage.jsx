@@ -1,5 +1,5 @@
-﻿import React, { useState } from "react";
-import { galleryData, galleryCategories } from "../data/galleryData";
+import React, { useState } from 'react';
+import { galleryData, galleryCategories } from '../data/galleryData';
 
 const GalleryPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('todos');
@@ -11,75 +11,73 @@ const GalleryPage = () => {
 
   return (
     <div style={{ padding: '100px 20px 40px', maxWidth: '1200px', margin: '0 auto' }}>
-      <h1 style={{ fontSize: '2.5rem', color: '#8b5cf6', textAlign: 'center', marginBottom: '20px' }}>
-        Nossa Galeria
-      </h1>
-      <p style={{ fontSize: '1.2rem', color: '#666', textAlign: 'center', marginBottom: '40px' }}>
-        Conheça alguns dos nossos trabalhos
-      </p>
-
-      {/* CATEGORIAS */}
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', justifyContent: 'center', marginBottom: '40px' }}>
+      <h1 style={{ textAlign: 'center', color: '#4361ee', fontSize: '2.5rem', marginBottom: '10px' }}>Galeria</h1>
+      <p style={{ textAlign: 'center', color: '#666', marginBottom: '40px' }}>Veja alguns dos nossos trabalhos</p>
+      
+      <div style={{ 
+        display: 'flex', 
+        gap: '10px', 
+        justifyContent: 'center', 
+        flexWrap: 'wrap', 
+        marginBottom: '30px' 
+      }}>
         {galleryCategories.map(cat => (
           <button
             key={cat.id}
             onClick={() => setSelectedCategory(cat.id)}
             style={{
               padding: '10px 20px',
-              border: '2px solid',
-              borderColor: selectedCategory === cat.id ? '#8b5cf6' : '#e5e7eb',
-              background: selectedCategory === cat.id ? '#8b5cf6' : 'white',
-              color: selectedCategory === cat.id ? 'white' : '#666',
+              background: selectedCategory === cat.id ? '#4361ee' : 'white',
+              color: selectedCategory === cat.id ? 'white' : '#4361ee',
+              border: '2px solid #4361ee',
               borderRadius: '30px',
               cursor: 'pointer',
               fontSize: '1rem',
               display: 'flex',
               alignItems: 'center',
-              gap: '8px'
+              gap: '5px'
             }}
           >
-            <span>{cat.icon}</span>
-            <span>{cat.label}</span>
+            <span>{cat.icon}</span> {cat.label}
           </button>
         ))}
       </div>
 
-      {/* GRADE DE IMAGENS */}
       <div style={{ 
         display: 'grid', 
         gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', 
-        gap: '20px'
+        gap: '20px' 
       }}>
         {filteredImages.map(item => (
-          <div 
+          <div
             key={item.id}
             onClick={() => setSelectedImage(item)}
             style={{
               background: 'white',
-              borderRadius: '12px',
+              borderRadius: '15px',
               overflow: 'hidden',
-              boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
-              cursor: 'pointer'
+              boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
+              cursor: 'pointer',
+              transition: 'transform 0.2s'
             }}
           >
             <img 
               src={item.image} 
-              alt={item.title}
-              style={{
-                width: '100%',
-                height: '200px',
-                objectFit: 'cover'
-              }}
+              alt={item.title} 
+              style={{ 
+                width: '100%', 
+                height: '200px', 
+                objectFit: 'cover' 
+              }} 
             />
             <div style={{ padding: '15px' }}>
-              <h3 style={{ color: '#8b5cf6', marginBottom: '5px' }}>{item.title}</h3>
+              <h3 style={{ color: '#4361ee', marginBottom: '5px' }}>{item.title}</h3>
               <p style={{ color: '#666', fontSize: '0.9rem' }}>{item.description}</p>
             </div>
           </div>
         ))}
       </div>
 
-      {/* MODAL */}
       {selectedImage && (
         <div
           style={{
@@ -88,23 +86,20 @@ const GalleryPage = () => {
             left: 0,
             width: '100%',
             height: '100%',
-            background: 'rgba(0,0,0,0.8)',
+            background: 'rgba(0,0,0,0.9)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            zIndex: 2000
+            zIndex: 2000,
+            cursor: 'pointer'
           }}
           onClick={() => setSelectedImage(null)}
         >
           <div
             style={{
-              background: 'white',
-              maxWidth: '800px',
-              width: '90%',
-              maxHeight: '90vh',
-              overflow: 'auto',
-              borderRadius: '12px',
-              position: 'relative'
+              position: 'relative',
+              maxWidth: '90%',
+              maxHeight: '90%'
             }}
             onClick={e => e.stopPropagation()}
           >
@@ -112,31 +107,27 @@ const GalleryPage = () => {
               onClick={() => setSelectedImage(null)}
               style={{
                 position: 'absolute',
-                top: '10px',
-                right: '15px',
+                top: '-40px',
+                right: '0',
                 fontSize: '2rem',
                 background: 'none',
                 border: 'none',
-                cursor: 'pointer',
-                color: '#666',
-                zIndex: 10
+                color: 'white',
+                cursor: 'pointer'
               }}
             >
-              ×
+              ✕
             </button>
             <img 
               src={selectedImage.image} 
               alt={selectedImage.title}
               style={{
-                width: '100%',
-                maxHeight: '500px',
-                objectFit: 'cover'
+                maxWidth: '100%',
+                maxHeight: '80vh',
+                objectFit: 'contain',
+                borderRadius: '10px'
               }}
             />
-            <div style={{ padding: '20px' }}>
-              <h2 style={{ color: '#8b5cf6', marginBottom: '10px' }}>{selectedImage.title}</h2>
-              <p style={{ color: '#666' }}>{selectedImage.description}</p>
-            </div>
           </div>
         </div>
       )}
