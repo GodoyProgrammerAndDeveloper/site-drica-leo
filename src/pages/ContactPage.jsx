@@ -9,7 +9,7 @@ const ContactPage = () => {
   }, []);
 
   return (
-    <div style={{ padding: "120px 20px 40px", maxWidth: "1200px", margin: "0 auto", position: "relative" }}>
+    <div style={{ padding: "0", maxWidth: "1200px", margin: "0 auto", position: "relative" }}>
       {/* HEADER FIXO COM MENU LADO DIREITO */}
       <div style={{
         position: "fixed",
@@ -142,13 +142,13 @@ const ContactPage = () => {
           font-size: 1.2rem;
           color: #2d2d44;
           text-align: center;
-          margin-bottom: 50px;
+          margin: 0 20px 50px 20px;
         }
         .contact-grid {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
           gap: 25px;
-          margin-bottom: 50px;
+          margin: 0 20px 50px 20px;
         }
         .contact-card {
           background: white;
@@ -189,7 +189,7 @@ const ContactPage = () => {
           background: linear-gradient(135deg, #f8f9fa, white);
           border-radius: 20px;
           padding: 40px;
-          margin-bottom: 40px;
+          margin: 0 20px 40px 20px;
           border: 1px solid #e9ecef;
           text-align: center;
         }
@@ -207,7 +207,7 @@ const ContactPage = () => {
           background: white;
           border-radius: 20px;
           padding: 40px;
-          margin-bottom: 40px;
+          margin: 0 20px 40px 20px;
           box-shadow: 0 10px 30px rgba(67, 97, 238, 0.1);
           border: 1px solid #e9ecef;
         }
@@ -249,26 +249,197 @@ const ContactPage = () => {
           padding: 20px;
           background: white;
           border-radius: 15px;
+          margin: 0 20px 40px 20px;
           border: 1px solid #e9ecef;
         }
+
+        /* ===== CELULAR ===== */
         @media (max-width: 768px) {
-          .contact-grid {
-            grid-template-columns: 1fr;
+          body {
+            padding-top: 200px !important;
           }
+
           h1 {
-            font-size: 2.5rem;
+            font-size: 2.5rem !important;
+            margin: 0 15px 10px 15px !important;
           }
+
+          .divider {
+            margin: 0 auto 30px auto !important;
+          }
+
+          .sub {
+            font-size: 1rem !important;
+            margin: 0 15px 30px 15px !important;
+          }
+
+          .contact-grid {
+            grid-template-columns: 1fr !important;
+            gap: 15px !important;
+            margin: 0 15px 30px 15px !important;
+          }
+
+          .contact-card {
+            padding: 20px !important;
+            gap: 15px !important;
+          }
+
+          .contact-icon {
+            width: 50px !important;
+            height: 50px !important;
+            font-size: 2rem !important;
+          }
+
+          .contact-card h3 {
+            font-size: 1.1rem !important;
+          }
+
+          .contact-card p {
+            font-size: 0.9rem !important;
+          }
+
+          .hours-card {
+            padding: 30px 15px !important;
+            margin: 0 15px 30px 15px !important;
+          }
+
+          .hours-card h3 {
+            font-size: 1.5rem !important;
+            margin-bottom: 15px !important;
+          }
+
           .hours-text {
-            font-size: 1rem;
+            font-size: 1rem !important;
           }
+
+          .form-container {
+            padding: 30px 15px !important;
+            margin: 0 15px 30px 15px !important;
+          }
+
+          .form-container h3 {
+            font-size: 1.5rem !important;
+            margin-bottom: 20px !important;
+          }
+
+          input, textarea {
+            padding: 12px !important;
+            font-size: 16px !important;
+          }
+
+          button[type="submit"] {
+            padding: 12px !important;
+            font-size: 1rem !important;
+          }
+
+          .footer-note {
+            margin: 0 15px 30px 15px !important;
+            padding: 15px !important;
+          }
+
+          .footer-note p {
+            font-size: 1rem !important;
+            margin-bottom: 15px !important;
+          }
+
+          .footer-note div {
+            flex-direction: column !important;
+            align-items: center !important;
+            gap: 10px !important;
+          }
+
+          .footer-note a {
+            width: 100% !important;
+            max-width: 280px !important;
+            text-align: center !important;
+            padding: 10px 20px !important;
+          }
+
           div[style*="position: fixed; top: 0; left: 0; width: 100%;"] {
-            flex-direction: column;
-            gap: 10px;
-            padding: 10px;
+            padding: 10px 15px !important;
+            flex-direction: column !important;
+            align-items: center !important;
           }
+
           div[style*="display: flex; gap: 20px; align-items: center;"] {
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+            gap: 10px !important;
+          }
+
+          div[style*="display: flex; flex-direction: column; align-items: flex-end; gap: 5px;"] {
+            align-items: center !important;
+          }
+
+          div[style*="display: flex; gap: 10px;"] {
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+          }
+
+          a[style*="padding: 8px 16px;"] {
+            padding: 6px 12px !important;
+            font-size: 0.8rem !important;
+          }
+
+          .logo-img, div[style*="width: 50px; height: 50px;"] {
+            width: 40px !important;
+            height: 40px !important;
+          }
+
+          h2[style*="font-size: 1.3rem;"] {
+            font-size: 1.1rem !important;
+          }
+
+          p[style*="font-size: 0.8rem;"] {
+            font-size: 0.7rem !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          body {
+            padding-top: 220px !important;
+          }
+
+          h1 {
+            font-size: 2rem !important;
+          }
+
+          .contact-card {
+            padding: 15px !important;
+          }
+
+          .contact-icon {
+            width: 45px !important;
+            height: 45px !important;
+            font-size: 1.8rem !important;
+          }
+
+          .contact-card h3 {
+            font-size: 1rem !important;
+          }
+
+          .contact-card p {
+            font-size: 0.8rem !important;
+          }
+
+          .hours-card {
+            padding: 25px 10px !important;
+          }
+
+          .hours-card h3 {
+            font-size: 1.3rem !important;
+          }
+
+          .hours-text {
+            font-size: 0.9rem !important;
+          }
+
+          .form-container {
+            padding: 25px 10px !important;
+          }
+
+          .form-container h3 {
+            font-size: 1.3rem !important;
           }
         }
       `}</style>
