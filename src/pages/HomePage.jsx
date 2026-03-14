@@ -49,7 +49,7 @@ const HomePage = () => {
   ];
 
   return (
-    <div style={{ padding: "120px 20px 40px", maxWidth: "1200px", margin: "0 auto", position: "relative" }}>
+    <div style={{ padding: "0", maxWidth: "1200px", margin: "0 auto", position: "relative" }}>
       {/* HEADER FIXO COM MENU LADO DIREITO */}
       <div style={{
         position: "fixed",
@@ -226,7 +226,7 @@ const HomePage = () => {
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 40px;
-          margin-bottom: 80px;
+          margin: 20px 20px 80px 20px;
           align-items: center;
         }
         .hero-content h1 {
@@ -284,10 +284,10 @@ const HomePage = () => {
           font-size: 2.5rem;
           color: #4361ee;
           text-align: center;
-          margin-bottom: 40px;
+          margin: 0 20px 40px 20px;
         }
         .about-section {
-          margin-bottom: 80px;
+          margin: 0 20px 80px 20px;
         }
         .about-content {
           background: #f8f9fa;
@@ -303,7 +303,7 @@ const HomePage = () => {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 25px;
-          margin-bottom: 40px;
+          margin: 0 20px 40px 20px;
         }
         .service-card {
           background: white;
@@ -335,7 +335,7 @@ const HomePage = () => {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 25px;
-          margin-bottom: 80px;
+          margin: 0 20px 80px 20px;
         }
         .testimonial-card {
           background: white;
@@ -380,6 +380,7 @@ const HomePage = () => {
           color: white;
           padding: 60px;
           border-radius: 20px;
+          margin: 0 20px 40px 20px;
         }
         .cta-section h2 {
           font-size: 2.5rem;
@@ -401,28 +402,175 @@ const HomePage = () => {
           font-weight: 600;
           cursor: pointer;
         }
+
+        /* ===== CELULAR ===== */
         @media (max-width: 768px) {
+          body {
+            padding-top: 200px !important;
+          }
+
+          .hero-section {
+            margin: 0 15px 60px 15px;
+          }
+
+          .about-section {
+            margin: 0 15px 60px 15px;
+          }
+
+          .services-grid {
+            margin: 0 15px 30px 15px;
+          }
+
+          .testimonials-grid {
+            margin: 0 15px 60px 15px;
+          }
+
+          .cta-section {
+            margin: 0 15px 30px 15px;
+            padding: 40px 20px;
+          }
+
           .hero-section {
             grid-template-columns: 1fr;
           }
+          
+          h1 {
+            font-size: 2.5rem;
+          }
+          
+          .hero-buttons {
+            flex-direction: column;
+            align-items: center;
+          }
+          
+          .btn-primary, .btn-secondary {
+            width: 100%;
+            max-width: 280px;
+          }
+          
+          .hero-image {
+            height: 250px;
+            margin-top: 20px;
+          }
+          
           .services-grid,
           .testimonials-grid {
             grid-template-columns: 1fr;
           }
-          .hero-buttons {
-            flex-direction: column;
+          
+          .service-card {
+            padding: 25px;
           }
-          .btn-primary, .btn-secondary {
-            width: 100%;
+          
+          .cta-section h2 {
+            font-size: 2rem;
           }
+          
+          .cta-section p {
+            font-size: 1rem;
+          }
+          
           div[style*="position: fixed; top: 0; left: 0; width: 100%;"] {
-            flex-direction: column;
-            gap: 10px;
-            padding: 10px;
+            padding: 10px 15px !important;
+            flex-direction: column !important;
+            align-items: center !important;
           }
+          
           div[style*="display: flex; gap: 20px; align-items: center;"] {
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+            gap: 10px !important;
+          }
+          
+          div[style*="display: flex; flex-direction: column; align-items: flex-end; gap: 5px;"] {
+            align-items: center !important;
+          }
+          
+          div[style*="display: flex; gap: 10px;"] {
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+          }
+          
+          a[style*="padding: 8px 16px;"] {
+            padding: 6px 12px !important;
+            font-size: 0.8rem !important;
+          }
+          
+          .testimonial-card {
+            padding: 20px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          body {
+            padding-top: 220px !important;
+          }
+          
+          h1 {
+            font-size: 2rem;
+          }
+          
+          h2 {
+            font-size: 1.8rem;
+          }
+          
+          .section-title {
+            font-size: 2rem;
+          }
+          
+          .service-card {
+            padding: 20px;
+          }
+          
+          .service-icon {
+            font-size: 2.5rem;
+          }
+          
+          .service-card h3 {
+            font-size: 1.2rem;
+          }
+          
+          .service-card p {
+            font-size: 0.9rem;
+          }
+          
+          .testimonial-avatar {
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+          }
+          
+          .testimonial-name {
+            font-size: 1rem;
+          }
+          
+          .testimonial-text {
+            font-size: 0.9rem;
+          }
+          
+          .cta-section {
+            padding: 30px 15px;
+          }
+          
+          .cta-section h2 {
+            font-size: 1.8rem;
+          }
+          
+          div[style*="position: fixed; top: 0; left: 0; width: 100%;"] {
+            padding: 8px 10px !important;
+          }
+          
+          .logo-img, div[style*="width: 50px; height: 50px;"] {
+            width: 40px !important;
+            height: 40px !important;
+          }
+          
+          h2[style*="font-size: 1.3rem;"] {
+            font-size: 1.1rem !important;
+          }
+          
+          p[style*="font-size: 0.8rem;"] {
+            font-size: 0.7rem !important;
           }
         }
       `}</style>
