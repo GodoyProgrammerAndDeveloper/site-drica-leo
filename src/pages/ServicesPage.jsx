@@ -56,117 +56,14 @@ const ServicesPage = () => {
   ];
 
   return (
-    <div style={{ padding: "120px 20px 40px", maxWidth: "1200px", margin: "0 auto", position: "relative" }}>
-      {/* SELO PROFISSIONAL CERTIFICADO */}
-      <div style={{
-        position: "fixed",
-        top: "80px",
-        right: "20px",
-        background: "linear-gradient(135deg, #4361ee, #f72585)",
-        color: "white",
-        padding: "8px 18px",
-        borderRadius: "50px",
-        fontSize: "0.9rem",
-        fontWeight: "bold",
-        boxShadow: "0 4px 15px rgba(67, 97, 238, 0.3)",
-        zIndex: 1000,
-        display: "flex",
-        alignItems: "center",
-        gap: "8px",
-        border: "2px solid white"
-      }}>
-        <span style={{ fontSize: "1.2rem" }}>🏆</span>
-        <span>Profissional Certificado</span>
-      </div>
-
-      {/* HEADER FIXO COM MENU E BOTÕES SOCIAIS */}
-      <div style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100%",
-        background: "white",
-        padding: "15px 30px",
-        boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
-        zIndex: 999,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        flexWrap: "wrap"
-      }}>
-        {/* LOGO */}
-        <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
-          <img 
-            src="/images/logo.png" 
-            alt="Drica & Léo" 
-            style={{ width: "50px", height: "50px", borderRadius: "50%", objectFit: "cover" }} 
-          />
-          <div>
-            <h2 style={{ margin: 0, fontSize: "1.3rem", color: "#4361ee" }}>Drica & Léo</h2>
-            <p style={{ margin: 0, fontSize: "0.8rem", color: "#f72585" }}>Personal Organizer</p>
-          </div>
-        </div>
-
-        {/* MENU DE NAVEGAÇÃO */}
-        <div style={{ display: "flex", gap: "25px", alignItems: "center" }}>
-          <a href="/" style={{ textDecoration: "none", color: "#2d2d44", fontWeight: "500" }}>Início</a>
-          <a href="/servicos" style={{ textDecoration: "none", color: "#4361ee", fontWeight: "600" }}>Serviços</a>
-          <a href="/sobre" style={{ textDecoration: "none", color: "#2d2d44", fontWeight: "500" }}>Sobre</a>
-          <a href="/galeria" style={{ textDecoration: "none", color: "#2d2d44", fontWeight: "500" }}>Galeria</a>
-          <a href="/contato" style={{ textDecoration: "none", color: "#2d2d44", fontWeight: "500" }}>Contato</a>
-        </div>
-
-        {/* BOTÕES SOCIAIS */}
-        <div style={{ display: "flex", gap: "10px" }}>
-          <a 
-            href="https://wa.me/5581994732981" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            style={{
-              background: "#25d366",
-              color: "white",
-              padding: "8px 16px",
-              borderRadius: "50px",
-              textDecoration: "none",
-              fontWeight: "600",
-              fontSize: "0.9rem",
-              display: "flex",
-              alignItems: "center",
-              gap: "5px"
-            }}
-          >
-            <i className="fab fa-whatsapp"></i> WhatsApp
-          </a>
-          <a 
-            href="https://instagram.com/adrianamoura.organizer" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            style={{
-              background: "linear-gradient(45deg, #f09433, #d62976, #962fbf, #4f5bd5)",
-              color: "white",
-              padding: "8px 16px",
-              borderRadius: "50px",
-              textDecoration: "none",
-              fontWeight: "600",
-              fontSize: "0.9rem",
-              display: "flex",
-              alignItems: "center",
-              gap: "5px"
-            }}
-          >
-            <i className="fab fa-instagram"></i> Instagram
-          </a>
-        </div>
-      </div>
-
-      {/* ESTILOS ADICIONAIS */}
+    <div style={{ padding: "100px 20px", maxWidth: "1200px", margin: "0 auto" }}>
       <style>{`
         * {
           box-sizing: border-box;
-        }
-        body {
           margin: 0;
           padding: 0;
+        }
+        body {
           background: #fef6f9;
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
@@ -174,7 +71,7 @@ const ServicesPage = () => {
           font-size: 3rem;
           color: #4361ee;
           text-align: center;
-          margin: 20px 0 10px 0;
+          margin: 0 0 10px 0;
         }
         .sub {
           font-size: 1.3rem;
@@ -186,17 +83,13 @@ const ServicesPage = () => {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
           gap: 30px;
-          margin: 40px 0 60px 0;
+          margin-bottom: 60px;
         }
         .card {
           background: white;
           border-radius: 20px;
           overflow: hidden;
           box-shadow: 0 10px 30px rgba(67, 97, 238, 0.1);
-          transition: transform 0.3s;
-        }
-        .card:hover {
-          transform: translateY(-5px);
         }
         .img-box {
           height: 250px;
@@ -223,10 +116,9 @@ const ServicesPage = () => {
           color: white;
           border: 4px solid white;
           z-index: 2;
-          box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
         .content {
-          padding: 40px 25px 25px 25px;
+          padding: 40px 25px 25px;
         }
         h2 {
           font-size: 2rem;
@@ -273,22 +165,19 @@ const ServicesPage = () => {
           background: linear-gradient(135deg, #4361ee, #f72585);
           border-radius: 30px;
           color: white;
-          margin-top: 40px;
         }
         .cta h3 {
           font-size: 2.5rem;
-          margin: 0 0 15px 0;
+          margin-bottom: 15px;
         }
         .cta p {
           font-size: 1.2rem;
-          margin: 0 0 30px 0;
-          opacity: 0.95;
+          margin-bottom: 30px;
         }
         .cta-buttons {
           display: flex;
           gap: 20px;
           justify-content: center;
-          flex-wrap: wrap;
         }
         .cta-buttons button {
           padding: 15px 40px;
@@ -297,10 +186,6 @@ const ServicesPage = () => {
           font-size: 1.1rem;
           font-weight: bold;
           cursor: pointer;
-          transition: transform 0.2s;
-        }
-        .cta-buttons button:hover {
-          transform: scale(1.05);
         }
         .btn-orcamento {
           background: white;
@@ -324,9 +209,6 @@ const ServicesPage = () => {
           h2 {
             font-size: 1.8rem;
           }
-          .content {
-            padding: 35px 15px 20px;
-          }
           .cta-buttons {
             flex-direction: column;
             align-items: center;
@@ -335,51 +217,28 @@ const ServicesPage = () => {
             width: 100%;
             max-width: 300px;
           }
-          .cta h3 {
-            font-size: 2rem;
-          }
-          div[style*="position: fixed; top: 0; left: 0; width: 100%;"] {
-            padding: 15px !important;
-            flex-direction: column !important;
-            gap: 15px !important;
-          }
-          div[style*="display: flex; gap: 25px; align-items: center;"] {
-            flex-wrap: wrap !important;
-            justify-content: center !important;
-          }
-        }
-        @media (max-width: 480px) {
-          h1 {
-            font-size: 2rem;
-          }
-          h2 {
-            font-size: 1.5rem;
-          }
-          .benefit h3, .quality h3 {
-            font-size: 1rem;
-          }
         }
       `}</style>
 
       <h1>Nossos Serviços</h1>
-      <p className="sub">Soluções personalizadas para cada ambiente da sua casa</p>
+      <p className="sub">Soluções personalizadas para cada ambiente</p>
 
       <div className="grid">
-        {services.map(service => (
-          <div key={service.id} className="card">
+        {services.map(s => (
+          <div key={s.id} className="card">
             <div className="img-box">
-              <img src={service.image} alt={service.title} />
-              <div className="icon-box">{service.icon}</div>
+              <img src={s.image} alt={s.title} />
+              <div className="icon-box">{s.icon}</div>
             </div>
             <div className="content">
-              <h2>{service.title}</h2>
+              <h2>{s.title}</h2>
               <div className="benefit">
                 <h3><span>✨</span> Benefício</h3>
-                <p>{service.benefit}</p>
+                <p>{s.benefit}</p>
               </div>
               <div className="quality">
                 <h3><span>🏆</span> Qualidade</h3>
-                <p>{service.quality}</p>
+                <p>{s.quality}</p>
               </div>
             </div>
           </div>
