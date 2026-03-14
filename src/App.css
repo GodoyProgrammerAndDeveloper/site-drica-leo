@@ -1,10 +1,359 @@
-﻿.App {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+/* VARIÁVEIS - Design Feminino e Profissional */
+:root {
+  --primary: #4361ee;
+  --primary-light: #4895ef;
+  --primary-dark: #3a0ca3;
+  --secondary: #f72585;
+  --secondary-light: #ff5d9e;
+  --secondary-dark: #b5179e;
+  --text-primary: #1e1e2f;
+  --text-secondary: #2d2d44;
+  --text-light: #6c757d;
+  --background: #fef6f9;
+  --white: #ffffff;
+  --gray-100: #f8f9fa;
+  --gray-200: #e9ecef;
+  --gray-300: #dee2e6;
+  --gradient-primary: linear-gradient(135deg, #4361ee, #f72585);
+  --gradient-soft: linear-gradient(135deg, #e0c3fc, #fcc8e0);
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+  --shadow-colored: 0 10px 30px rgba(67, 97, 238, 0.15);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 30px;
+  --font-primary: 'Poppins', -apple-system, sans-serif;
+  --font-secondary: 'Montserrat', sans-serif;
 }
 
-main {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  color: var(--text-primary);
+  background: var(--background);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-secondary);
+  color: var(--primary);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: 3.5rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+}
+
+p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
   flex: 1;
-  padding-top: 80px;
+  margin-left: 280px;
+  padding: 40px;
+  background: var(--white);
+  border-radius: var(--radius-xl) 0 0 var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+}
+
+/* RESPONSIVIDADE - CELULAR */
+@media (max-width: 1024px) {
+  .main-content {
+    margin-left: 0;
+    padding: 20px;
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Ajustes gerais */
+  .container {
+    padding: 0 15px !important;
+  }
+
+  /* Hero section */
+  section[style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  section[style*="grid-template-columns: 1fr 1fr"] > div:first-child {
+    text-align: center !important;
+    padding: 0 10px !important;
+  }
+
+  /* Títulos */
+  h1 {
+    font-size: 2.5rem !important;
+    text-align: center !important;
+  }
+
+  h2 {
+    font-size: 2rem !important;
+    text-align: center !important;
+    display: block !important;
+  }
+
+  h2::after {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+
+  p {
+    font-size: 1rem !important;
+    text-align: justify !important;
+  }
+
+  /* Botões */
+  div[style*="display: flex; gap: 15px"] {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  button {
+    width: 100% !important;
+    max-width: 280px !important;
+    margin: 5px 0 !important;
+  }
+
+  /* Serviços */
+  div[style*="grid-template-columns: repeat(3, 1fr)"] {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  /* Depoimentos */
+  div[style*="grid-template-columns: repeat(3, 1fr)"]:has(div[style*="testimonial"]) {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  div[style*="grid-template-columns: repeat(3, 1fr)"] > div {
+    margin: 0 10px !important;
+  }
+
+  /* Cards de contato */
+  div[style*="grid-template-columns: repeat(2, 1fr)"] {
+    grid-template-columns: 1fr !important;
+    gap: 15px !important;
+  }
+
+  /* Valores */
+  div[style*="grid-template-columns: repeat(4, 1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 15px !important;
+  }
+
+  div[style*="grid-template-columns: repeat(4, 1fr)"] > div {
+    padding: 20px 15px !important;
+  }
+
+  /* CTA final */
+  section[style*="background: linear-gradient"] {
+    padding: 40px 20px !important;
+  }
+
+  section[style*="background: linear-gradient"] h2 {
+    font-size: 2rem !important;
+  }
+
+  section[style*="background: linear-gradient"] p {
+    font-size: 1rem !important;
+  }
+
+  /* Imagem da hero */
+  div[style*="height: 400px"] {
+    height: 250px !important;
+    margin-top: 20px !important;
+  }
+
+  /* Horários */
+  div[style*="display: flex; justify-content: center; gap: 40px"] {
+    flex-direction: column !important;
+    gap: 15px !important;
+    align-items: center !important;
+  }
+
+  div[style*="display: flex; justify-content: center; gap: 40px"] > div {
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  /* Formulário */
+  form[style*="max-width: 600px"] {
+    width: 100% !important;
+    padding: 0 10px !important;
+  }
+
+  input, textarea {
+    font-size: 16px !important; /* Evita zoom no iOS */
+  }
+
+  /* Logo */
+  div[style*="text-align: center; margin-bottom: 20px"] img {
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+  div[style*="text-align: center; margin-bottom: 20px"] p {
+    font-size: 0.8rem !important;
+  }
+
+  /* Selo certificado */
+  div[style*="position: fixed; top: 120px; right: 20px"] {
+    top: 80px !important;
+    right: 10px !important;
+    padding: 5px 12px !important;
+    font-size: 0.75rem !important;
+  }
+
+  div[style*="position: fixed; top: 120px; right: 20px"] span:first-child {
+    font-size: 1rem !important;
+  }
+
+  /* Cards de depoimento */
+  div[style*="background: white; padding: 30px; border-radius: 15px"] {
+    padding: 20px !important;
+  }
+
+  div[style*="display: flex; align-items: center; gap: 15px; margin-bottom: 15px"] {
+    gap: 10px !important;
+  }
+
+  div[style*="width: 50px; height: 50px; border-radius: 50%"] {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 1.5rem !important;
+  }
+
+  h4 {
+    font-size: 1rem !important;
+  }
+
+  /* Botão voltar ao topo */
+  button[style*="position: fixed; bottom: 30px; right: 30px"] {
+    bottom: 20px !important;
+    right: 20px !important;
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 1.2rem !important;
+  }
+}
+
+/* CELULAR PEQUENO (menos de 480px) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem !important;
+  }
+
+  h2 {
+    font-size: 1.8rem !important;
+  }
+
+  p {
+    font-size: 0.9rem !important;
+  }
+
+  div[style*="grid-template-columns: repeat(4, 1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  div[style*="grid-template-columns: repeat(4, 1fr)"] > div {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  div[style*="grid-template-columns: repeat(4, 1fr)"] > div div[style*="font-size: 3rem"] {
+    margin-bottom: 10px !important;
+  }
+
+  /* Cards de serviço */
+  div[style*="grid-template-columns: repeat(3, 1fr)"] > div {
+    margin: 0 !important;
+  }
+
+  div[style*="font-size: 3rem; margin-bottom: 15px"] {
+    font-size: 2.5rem !important;
+  }
+
+  h3 {
+    font-size: 1.2rem !important;
+  }
+
+  /* Depoimentos */
+  div[style*="grid-template-columns: repeat(3, 1fr)"]:has(div[style*="testimonial"]) > div {
+    padding: 15px !important;
+  }
+
+  div[style*="color: #ffc107; font-size: 1.2rem"] {
+    font-size: 1rem !important;
+  }
+
+  /* Contato */
+  div[style*="grid-template-columns: repeat(2, 1fr)"] > div {
+    padding: 20px !important;
+  }
+
+  div[style*="width: 70px; height: 70px"] {
+    width: 50px !important;
+    height: 50px !important;
+    font-size: 1.8rem !important;
+  }
+
+  h3[style*="font-size: 1.3rem"] {
+    font-size: 1.1rem !important;
+  }
+
+  p[style*="font-size: 1.1rem"] {
+    font-size: 0.9rem !important;
+  }
 }
