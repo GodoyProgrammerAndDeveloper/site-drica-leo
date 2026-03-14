@@ -9,7 +9,14 @@ const ContactPage = () => {
   }, []);
 
   return (
-    <div style={{ padding: "0", maxWidth: "1200px", margin: "0 auto", position: "relative" }}>
+    <div style={{ 
+      padding: "0", 
+      maxWidth: "1200px", 
+      margin: "0 auto", 
+      position: "relative",
+      width: "100%",
+      overflowX: "hidden"
+    }}>
       {/* HEADER FIXO - VERSÃO SUPER COMPACTA */}
       <div style={{
         position: "fixed",
@@ -17,7 +24,7 @@ const ContactPage = () => {
         left: 0,
         width: "100%",
         background: "white",
-        padding: "5px 12px",
+        padding: "8px 15px",
         boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
         zIndex: 999,
         display: "flex",
@@ -26,15 +33,15 @@ const ContactPage = () => {
         flexWrap: "wrap"
       }}>
         {/* LOGO MINI */}
-        <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
           <img 
             src="/images/logo.png" 
             alt="Drica & Léo" 
-            style={{ width: "30px", height: "30px", borderRadius: "50%", objectFit: "cover" }}
+            style={{ width: "35px", height: "35px", borderRadius: "50%", objectFit: "cover" }}
           />
           <div>
-            <h2 style={{ margin: 0, fontSize: "0.9rem", color: "#4361ee" }}>Drica & Léo</h2>
-            <p style={{ margin: 0, fontSize: "0.6rem", color: "#f72585" }}>Personal Organizer</p>
+            <h2 style={{ margin: 0, fontSize: "1rem", color: "#4361ee" }}>Drica & Léo</h2>
+            <p style={{ margin: 0, fontSize: "0.65rem", color: "#f72585" }}>Personal Organizer</p>
           </div>
         </div>
 
@@ -64,7 +71,7 @@ const ContactPage = () => {
                 alignItems: "center",
                 gap: "3px"
               }}>
-                <i className="fab fa-whatsapp" style={{ fontSize: "0.8rem" }}></i> WhatsApp
+                <i className="fab fa-whatsapp"></i> WhatsApp
               </a>
               <a href="https://instagram.com/adrianamoura.organizer" target="_blank" rel="noopener noreferrer" style={{
                 background: "linear-gradient(45deg, #f09433, #d62976, #962fbf, #4f5bd5)",
@@ -78,7 +85,7 @@ const ContactPage = () => {
                 alignItems: "center",
                 gap: "3px"
               }}>
-                <i className="fab fa-instagram" style={{ fontSize: "0.8rem" }}></i> Instagram
+                <i className="fab fa-instagram"></i> Instagram
               </a>
             </div>
             <div style={{
@@ -86,7 +93,7 @@ const ContactPage = () => {
               color: "white",
               padding: "2px 8px",
               borderRadius: "30px",
-              fontSize: "0.55rem",
+              fontSize: "0.6rem",
               fontWeight: "bold",
               display: "flex",
               alignItems: "center",
@@ -101,25 +108,37 @@ const ContactPage = () => {
       </div>
 
       <style>{`
+        /* RESET FORÇADO */
         * {
           box-sizing: border-box;
           margin: 0;
           padding: 0;
         }
+        
         body {
           background: #fef6f9;
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-        .contact-wrapper {
-          padding-top: 70px;
+          margin: 0;
+          padding: 0;
           width: 100%;
+          overflow-x: hidden;
         }
+        
+        .contact-wrapper {
+          padding-top: 75px;
+          width: 100%;
+          max-width: 100%;
+          overflow-x: hidden;
+        }
+        
         h1 {
           font-size: 2.5rem;
           color: #4361ee;
           text-align: center;
           margin: 10px 0 5px 0;
+          word-break: break-word;
         }
+        
         .divider {
           width: 70px;
           height: 4px;
@@ -127,18 +146,22 @@ const ContactPage = () => {
           margin: 0 auto 25px;
           border-radius: 2px;
         }
+        
         .sub {
           font-size: 1.1rem;
           color: #2d2d44;
           text-align: center;
           margin: 0 15px 30px 15px;
+          word-break: break-word;
         }
+        
         .contact-grid {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
           gap: 20px;
           margin: 0 15px 30px 15px;
         }
+        
         .contact-card {
           background: white;
           border-radius: 15px;
@@ -149,7 +172,9 @@ const ContactPage = () => {
           align-items: center;
           gap: 12px;
           cursor: pointer;
+          width: 100%;
         }
+        
         .contact-icon {
           width: 50px;
           height: 50px;
@@ -161,15 +186,20 @@ const ContactPage = () => {
           color: white;
           flex-shrink: 0;
         }
+        
         .contact-card h3 {
           font-size: 1.1rem;
           margin-bottom: 3px;
+          word-break: break-word;
         }
+        
         .contact-card p {
           font-size: 0.9rem;
           margin-bottom: 3px;
           color: #2d2d44;
+          word-break: break-word;
         }
+        
         .hours-card {
           background: linear-gradient(135deg, #f8f9fa, white);
           border-radius: 15px;
@@ -178,16 +208,21 @@ const ContactPage = () => {
           border: 1px solid #e9ecef;
           text-align: center;
         }
+        
         .hours-card h3 {
           font-size: 1.5rem;
           color: #4361ee;
           margin-bottom: 10px;
+          word-break: break-word;
         }
+        
         .hours-text {
           font-size: 1rem;
           color: #2d2d44;
           font-weight: 500;
+          word-break: break-word;
         }
+        
         .form-container {
           background: white;
           border-radius: 15px;
@@ -196,24 +231,31 @@ const ContactPage = () => {
           box-shadow: 0 5px 15px rgba(67, 97, 238, 0.1);
           border: 1px solid #e9ecef;
         }
+        
         .form-container h3 {
           font-size: 1.5rem;
           color: #4361ee;
           text-align: center;
           margin-bottom: 20px;
+          word-break: break-word;
         }
+        
         form {
           display: grid;
           gap: 12px;
           max-width: 500px;
           margin: 0 auto;
+          width: 100%;
         }
+        
         input, textarea {
           padding: 10px;
           border-radius: 8px;
           border: 1px solid #e9ecef;
           font-size: 0.9rem;
+          width: 100%;
         }
+        
         button[type="submit"] {
           padding: 10px;
           background: linear-gradient(135deg, #4361ee, #f72585);
@@ -223,7 +265,9 @@ const ContactPage = () => {
           font-size: 0.95rem;
           font-weight: bold;
           cursor: pointer;
+          width: 100%;
         }
+        
         .footer-note {
           text-align: center;
           padding: 15px;
@@ -233,84 +277,86 @@ const ContactPage = () => {
           border: 1px solid #e9ecef;
         }
 
-        /* ===== CELULAR ===== */
+        /* ===== CELULAR - VERSÃO UNIVERSAL ===== */
         @media (max-width: 768px) {
           .contact-wrapper {
             padding-top: 85px;
           }
 
           h1 {
-            font-size: 2rem !important;
+            font-size: clamp(1.8rem, 6vw, 2.2rem) !important;
             margin: 5px 10px 5px 10px !important;
             line-height: 1.2 !important;
           }
 
           .divider {
-            width: 50px !important;
+            width: 60px !important;
             margin: 0 auto 20px auto !important;
           }
 
           .sub {
-            font-size: 0.9rem !important;
+            font-size: clamp(0.9rem, 3.5vw, 1rem) !important;
             margin: 0 10px 20px 10px !important;
           }
 
           .contact-grid {
             grid-template-columns: 1fr !important;
-            gap: 10px !important;
-            margin: 0 10px 20px 10px !important;
+            gap: 12px !important;
+            margin: 0 12px 25px 12px !important;
           }
 
           .contact-card {
-            padding: 12px !important;
+            padding: 15px !important;
             gap: 10px !important;
           }
 
           .contact-icon {
-            width: 40px !important;
-            height: 40px !important;
-            font-size: 1.5rem !important;
+            width: 45px !important;
+            height: 45px !important;
+            font-size: 1.8rem !important;
           }
 
           .contact-card h3 {
-            font-size: 0.95rem !important;
+            font-size: clamp(0.95rem, 3vw, 1rem) !important;
           }
 
           .contact-card p {
-            font-size: 0.8rem !important;
+            font-size: clamp(0.8rem, 2.5vw, 0.85rem) !important;
+          }
+
+          .contact-card p:last-child {
+            font-size: clamp(0.7rem, 2.3vw, 0.8rem) !important;
           }
 
           .hours-card {
-            padding: 15px !important;
-            margin: 0 10px 20px 10px !important;
+            padding: 20px 12px !important;
+            margin: 0 12px 25px 12px !important;
           }
 
           .hours-card h3 {
-            font-size: 1.2rem !important;
+            font-size: clamp(1.2rem, 5vw, 1.4rem) !important;
           }
 
           .hours-text {
-            font-size: 0.9rem !important;
+            font-size: clamp(0.9rem, 3vw, 1rem) !important;
           }
 
           .form-container {
-            padding: 15px !important;
-            margin: 0 10px 20px 10px !important;
+            padding: 20px 12px !important;
+            margin: 0 12px 25px 12px !important;
           }
 
           .form-container h3 {
-            font-size: 1.2rem !important;
-            margin-bottom: 15px !important;
+            font-size: clamp(1.2rem, 5vw, 1.4rem) !important;
           }
 
           .footer-note {
-            margin: 0 10px 20px 10px !important;
+            margin: 0 12px 25px 12px !important;
             padding: 12px !important;
           }
 
           .footer-note p {
-            font-size: 0.9rem !important;
-            margin-bottom: 10px !important;
+            font-size: clamp(0.9rem, 3vw, 1rem) !important;
           }
 
           .footer-note div {
@@ -322,63 +368,79 @@ const ContactPage = () => {
             width: 100% !important;
             max-width: 250px !important;
             padding: 8px 15px !important;
-            font-size: 0.85rem !important;
+            font-size: clamp(0.8rem, 2.8vw, 0.85rem) !important;
           }
 
           /* GARANTIA QUE O TÍTULO NÃO É COBERTO */
           div[style*="position: fixed; top: 0; left: 0; width: 100%;"] {
-            padding: 5px 8px !important;
+            padding: 6px 10px !important;
           }
 
           .logo-img, div[style*="width: 50px; height: 50px;"] {
-            width: 28px !important;
-            height: 28px !important;
+            width: 30px !important;
+            height: 30px !important;
           }
 
           h2[style*="font-size: 1.3rem;"] {
-            font-size: 0.85rem !important;
+            font-size: clamp(0.85rem, 2.8vw, 0.9rem) !important;
           }
 
           p[style*="font-size: 0.8rem;"] {
-            font-size: 0.6rem !important;
+            font-size: clamp(0.6rem, 2vw, 0.65rem) !important;
           }
 
           a[style*="font-size: 0.8rem;"] {
-            font-size: 0.7rem !important;
+            font-size: clamp(0.65rem, 2.2vw, 0.7rem) !important;
           }
 
           a[style*="padding: 4px 8px;"] {
             padding: 3px 6px !important;
-            font-size: 0.65rem !important;
+            font-size: clamp(0.6rem, 2vw, 0.65rem) !important;
           }
 
           div[style*="padding: 2px 8px;"] {
             padding: 2px 6px !important;
-            font-size: 0.5rem !important;
+            font-size: clamp(0.55rem, 1.8vw, 0.6rem) !important;
           }
         }
 
+        /* CELULAR MÉDIO */
+        @media (min-width: 769px) and (max-width: 1024px) {
+          .contact-wrapper {
+            padding-top: 80px;
+          }
+        }
+
+        /* CELULAR PEQUENO */
         @media (max-width: 480px) {
           .contact-wrapper {
             padding-top: 90px;
           }
 
           h1 {
-            font-size: 1.8rem !important;
+            font-size: clamp(1.5rem, 5vw, 1.8rem) !important;
           }
 
           .contact-icon {
-            width: 35px !important;
-            height: 35px !important;
-            font-size: 1.3rem !important;
+            width: 40px !important;
+            height: 40px !important;
+            font-size: 1.5rem !important;
           }
 
           .contact-card h3 {
-            font-size: 0.85rem !important;
+            font-size: clamp(0.85rem, 2.8vw, 0.9rem) !important;
           }
 
           .contact-card p {
-            font-size: 0.75rem !important;
+            font-size: clamp(0.75rem, 2.5vw, 0.8rem) !important;
+          }
+
+          .hours-card h3 {
+            font-size: clamp(1rem, 4vw, 1.2rem) !important;
+          }
+
+          .form-container h3 {
+            font-size: clamp(1rem, 4vw, 1.2rem) !important;
           }
         }
       `}</style>
