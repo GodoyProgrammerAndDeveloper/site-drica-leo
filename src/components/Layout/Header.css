@@ -1,4 +1,4 @@
-﻿.header {
+.header {
   position: fixed;
   top: 0;
   left: 0;
@@ -6,6 +6,7 @@
   z-index: 1000;
   padding: 20px 0;
   background: transparent;
+  transition: all 0.3s;
 }
 
 .header.scrolled {
@@ -49,6 +50,7 @@
   margin: 0;
 }
 
+/* Ícone do menu hambúrguer */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -58,6 +60,7 @@
   background: transparent;
   border: none;
   cursor: pointer;
+  z-index: 1001;
 }
 
 .menu-toggle span {
@@ -65,6 +68,7 @@
   height: 3px;
   background: #8b5cf6;
   border-radius: 3px;
+  transition: all 0.3s;
 }
 
 .menu-toggle.active span:nth-child(1) {
@@ -91,10 +95,14 @@
   color: #334155;
   text-decoration: none;
   font-weight: 500;
+  transition: color 0.3s;
   padding: 5px 0;
 }
 
-/* Botões sociais */
+.nav-link:hover {
+  color: #8b5cf6;
+}
+
 .nav-link.whatsapp {
   background: #25d366;
   color: white;
@@ -112,10 +120,15 @@
 .nav-social {
   display: flex;
   gap: 10px;
+  margin-left: 20px;
 }
 
-/* Mobile */
+/* RESPONSIVIDADE - CELULAR */
 @media (max-width: 768px) {
+  .header-container {
+    padding: 0 15px;
+  }
+
   .menu-toggle {
     display: flex;
   }
@@ -125,29 +138,61 @@
     top: 0;
     right: -100%;
     width: 80%;
-    max-width: 400px;
+    max-width: 350px;
     height: 100vh;
     background: white;
     flex-direction: column;
     justify-content: center;
-    padding: 40px;
+    padding: 40px 20px;
     box-shadow: -5px 0 20px rgba(0,0,0,0.1);
-    transition: right 0.3s;
-    gap: 20px;
+    transition: right 0.3s ease;
+    z-index: 1000;
+    gap: 15px;
   }
 
   .nav.active {
     right: 0;
   }
 
+  .nav-link {
+    font-size: 1.1rem;
+    padding: 12px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-link.whatsapp, 
+  .nav-link.instagram {
+    width: 100%;
+    text-align: center;
+    margin: 5px 0;
+  }
+
   .nav-social {
     flex-direction: column;
     width: 100%;
+    margin-left: 0;
+    margin-top: 10px;
   }
 
-  .nav-link.whatsapp,
-  .nav-link.instagram {
-    text-align: center;
+  .logo-img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logo-text h2 {
+    font-size: 1.1rem;
+  }
+
+  .logo-text p {
+    font-size: 0.7rem;
+  }
+}
+
+/* CELULAR PEQUENO */
+@media (max-width: 480px) {
+  .nav {
     width: 100%;
+    max-width: none;
   }
 }
