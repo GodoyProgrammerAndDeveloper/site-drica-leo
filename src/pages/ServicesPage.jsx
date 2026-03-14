@@ -56,7 +56,7 @@ const ServicesPage = () => {
   ];
 
   return (
-    <div style={{ padding: "100px 20px", maxWidth: "1200px", margin: "0 auto" }}>
+    <div style={{ padding: "120px 20px 40px", maxWidth: "1200px", margin: "0 auto" }}>
       <style>{`
         * {
           box-sizing: border-box;
@@ -71,7 +71,7 @@ const ServicesPage = () => {
           font-size: 3rem;
           color: #4361ee;
           text-align: center;
-          margin: 0 0 10px 0;
+          margin: 20px 0 10px 0;
         }
         .sub {
           font-size: 1.3rem;
@@ -165,6 +165,7 @@ const ServicesPage = () => {
           background: linear-gradient(135deg, #4361ee, #f72585);
           border-radius: 30px;
           color: white;
+          margin-top: 40px;
         }
         .cta h3 {
           font-size: 2.5rem;
@@ -178,6 +179,7 @@ const ServicesPage = () => {
           display: flex;
           gap: 20px;
           justify-content: center;
+          flex-wrap: wrap;
         }
         .cta-buttons button {
           padding: 15px 40px;
@@ -186,6 +188,10 @@ const ServicesPage = () => {
           font-size: 1.1rem;
           font-weight: bold;
           cursor: pointer;
+          transition: transform 0.2s;
+        }
+        .cta-buttons button:hover {
+          transform: scale(1.05);
         }
         .btn-orcamento {
           background: white;
@@ -209,6 +215,9 @@ const ServicesPage = () => {
           h2 {
             font-size: 1.8rem;
           }
+          .content {
+            padding: 35px 15px 20px;
+          }
           .cta-buttons {
             flex-direction: column;
             align-items: center;
@@ -216,6 +225,20 @@ const ServicesPage = () => {
           .cta-buttons button {
             width: 100%;
             max-width: 300px;
+          }
+          .cta h3 {
+            font-size: 2rem;
+          }
+        }
+        @media (max-width: 480px) {
+          h1 {
+            font-size: 2rem;
+          }
+          h2 {
+            font-size: 1.5rem;
+          }
+          .benefit h3, .quality h3 {
+            font-size: 1rem;
           }
         }
       `}</style>
