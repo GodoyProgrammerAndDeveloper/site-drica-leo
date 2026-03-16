@@ -10,9 +10,9 @@ const GalleryPage = () => {
     setCurrentPath(window.location.pathname);
   }, []);
 
-  // DADOS COMBINADOS (IMAGENS + 4 VÍDEOS) - CATEGORIAS CORRIGIDAS
+  // DADOS COMBINADOS - NOMES CORRIGIDOS CONFORME SUA SOLICITAÇÃO
   const mediaItems = [
-    // VÍDEO 1 - Guarda-roupas (ID 101)
+    // VÍDEO 1 - Guarda-roupas
     {
       id: 101,
       type: 'video',
@@ -23,7 +23,7 @@ const GalleryPage = () => {
       description: 'Processo completo de organização de guarda-roupas',
       category: 'guarda-roupas'
     },
-    // VÍDEO 2 - Guarda-roupas (ID 102)
+    // VÍDEO 2 - Guarda-roupas
     {
       id: 102,
       type: 'video',
@@ -34,7 +34,7 @@ const GalleryPage = () => {
       description: 'Organização completa de guarda-roupas',
       category: 'guarda-roupas'
     },
-    // VÍDEO 3 - Organização (ID 103)
+    // VÍDEO 3 - Organização
     {
       id: 103,
       type: 'video',
@@ -45,7 +45,7 @@ const GalleryPage = () => {
       description: 'Técnica profissional de organização com colmeias',
       category: 'organizacao'
     },
-    // VÍDEO 4 - Organização (ID 104)
+    // VÍDEO 4 - Organização
     {
       id: 104,
       type: 'video',
@@ -56,7 +56,7 @@ const GalleryPage = () => {
       description: 'Transformação completa de espaços',
       category: 'organizacao'
     },
-    // IMAGENS (IDs a partir de 201)
+    // IMAGENS EXISTENTES
     {
       id: 201,
       type: 'image',
@@ -210,10 +210,10 @@ const GalleryPage = () => {
 
       <style>{`
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background: #fef6f9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding-top: 0; }
+        body { background: #fef6f9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
         .gallery-wrapper { padding-top: 85px; width: 100%; max-width: 100%; overflow-x: hidden; }
-        h1 { font-size: clamp(2rem, 6vw, 2.5rem); color: #4361ee; text-align: center; margin: 10px 0 5px 0; word-break: break-word; }
-        .sub { font-size: clamp(1rem, 3.5vw, 1.1rem); color: #2d2d44; text-align: center; margin: 0 15px 30px 15px; word-break: break-word; }
+        h1 { font-size: clamp(2rem, 6vw, 2.5rem); color: #4361ee; text-align: center; margin: 10px 0 5px 0; }
+        .sub { font-size: clamp(1rem, 3.5vw, 1.1rem); color: #2d2d44; text-align: center; margin: 0 15px 30px 15px; }
         .categories { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: 0 15px 40px 15px; }
         .category-btn { padding: 8px 15px; border: 2px solid; border-radius: 30px; cursor: pointer; font-size: clamp(0.85rem, 2.5vw, 0.95rem); display: flex; align-items: center; gap: 5px; transition: all 0.2s; background: white; }
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin: 0 15px 40px 15px; }
@@ -223,9 +223,9 @@ const GalleryPage = () => {
         .media-container img, .media-container video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
         .play-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50px; height: 50px; background: rgba(67,97,238,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; z-index: 2; }
         .card-content { padding: 15px; }
-        .card-content h3 { color: #4361ee; margin-bottom: 5px; font-size: clamp(1rem, 3vw, 1.2rem); word-break: break-word; }
-        .card-content p { color: #2d2d44; font-size: clamp(0.85rem, 2.5vw, 0.95rem); word-break: break-word; }
-        .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); display: flex; align-items: center; justify-content: center; zIndex: 2000; cursor: pointer; padding: 20px; }
+        .card-content h3 { color: #4361ee; margin-bottom: 5px; font-size: clamp(1rem, 3vw, 1.2rem); }
+        .card-content p { color: #2d2d44; font-size: clamp(0.85rem, 2.5vw, 0.95rem); }
+        .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); display: flex; align-items: center; justify-content: center; zIndex: 2000; cursor: pointer; }
         .modal-content { position: relative; max-width: 90%; max-height: 90%; }
         .modal-close { position: absolute; top: -40px; right: 0; font-size: 2rem; background: none; border: none; color: white; cursor: pointer; }
         .modal video, .modal img { max-width: 100%; max-height: 80vh; border-radius: 10px; }
@@ -235,10 +235,6 @@ const GalleryPage = () => {
           .category-btn { padding: 6px 12px; }
           .grid { grid-template-columns: 1fr; gap: 15px; margin: 0 10px 30px 10px; }
           .play-icon { width: 40px; height: 40px; font-size: 1.2rem; }
-        }
-        @media (max-width: 480px) {
-          .gallery-wrapper { padding-top: 100px; }
-          .category-btn { padding: 4px 10px; font-size: 0.8rem; }
         }
       `}</style>
 
