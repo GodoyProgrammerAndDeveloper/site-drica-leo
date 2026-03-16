@@ -10,46 +10,53 @@ const GalleryPage = () => {
     setCurrentPath(window.location.pathname);
   }, []);
 
-  // DADOS COMBINADOS (IMAGENS + VÍDEOS)
+  // DADOS COMBINADOS (IMAGENS + 4 VÍDEOS)
   const mediaItems = [
-    // VÍDEOS (com os nomes que você tem na pasta)
+    // VÍDEO 1
     {
       id: 1,
       type: 'video',
       thumbnail: '/images/thumbnail-guarda-roupas.jpg',
+      fallbackThumbnail: '/images/logo.png',
       videoUrl: '/videos/video1.mp4',
       title: 'Guarda-roupas Antes/Depois',
       description: 'Processo completo de organização de guarda-roupas',
       category: 'guarda-roupas'
     },
+    // VÍDEO 2
     {
       id: 2,
       type: 'video',
       thumbnail: '/images/thumbnail-cozinha.jpg',
+      fallbackThumbnail: '/images/logo.png',
       videoUrl: '/videos/video2.mp4',
-      title: 'Cozinha Organizada',
+      title: 'Cozinha Antes/Depois',
       description: 'Transformação da despensa e organização de louças',
       category: 'cozinha'
     },
+    // VÍDEO 3
     {
       id: 3,
       type: 'video',
-      thumbnail: '/images/thumbnail-escritorio.jpg',
+      thumbnail: '/images/thumbnail-organizacao.jpg',
+      fallbackThumbnail: '/images/logo.png',
       videoUrl: '/videos/video3.mp4',
-      title: 'Home Office Produtivo',
-      description: 'Organização completa de escritório em casa',
-      category: 'escritorio'
+      title: 'Organização com Colmeias',
+      description: 'Técnica profissional de organização com colmeias',
+      category: 'organizacao'
     },
+    // VÍDEO 4
     {
       id: 4,
       type: 'video',
       thumbnail: '/images/thumbnail-depoimento.jpg',
+      fallbackThumbnail: '/images/logo.png',
       videoUrl: '/videos/video4.mp4',
       title: 'Depoimento de Cliente',
       description: 'Cliente satisfeita com o trabalho realizado',
       category: 'depoimentos'
     },
-    // IMAGENS EXISTENTES
+    // IMAGENS
     {
       id: 5,
       type: 'image',
@@ -115,14 +122,7 @@ const GalleryPage = () => {
     : mediaItems.filter(item => item.category === selectedCategory);
 
   return (
-    <div style={{ 
-      padding: "0", 
-      maxWidth: "1200px", 
-      margin: "0 auto", 
-      position: "relative",
-      width: "100%",
-      overflowX: "hidden"
-    }}>
+    <div style={{ padding: "0", maxWidth: "1200px", margin: "0 auto", position: "relative" }}>
       {/* HEADER FIXO */}
       <div style={{
         position: "fixed",
@@ -218,11 +218,11 @@ const GalleryPage = () => {
         .categories { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: 0 15px 40px 15px; }
         .category-btn { padding: 8px 15px; border: 2px solid; border-radius: 30px; cursor: pointer; font-size: clamp(0.85rem, 2.5vw, 0.95rem); display: flex; align-items: center; gap: 5px; transition: all 0.2s; background: white; }
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin: 0 15px 40px 15px; }
-        .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(67, 97, 238, 0.1); cursor: pointer; transition: transform 0.2s; }
+        .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(67,97,238,0.1); cursor: pointer; transition: transform 0.2s; }
         .card:hover { transform: translateY(-5px); }
         .media-container { position: relative; width: 100%; padding-top: 56.25%; overflow: hidden; background: #f0f0f0; }
         .media-container img, .media-container video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
-        .play-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50px; height: 50px; background: rgba(67, 97, 238, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; z-index: 2; }
+        .play-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50px; height: 50px; background: rgba(67,97,238,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; z-index: 2; }
         .card-content { padding: 15px; }
         .card-content h3 { color: #4361ee; margin-bottom: 5px; font-size: clamp(1rem, 3vw, 1.2rem); word-break: break-word; }
         .card-content p { color: #2d2d44; font-size: clamp(0.85rem, 2.5vw, 0.95rem); word-break: break-word; }
@@ -270,7 +270,14 @@ const GalleryPage = () => {
               <div className="media-container">
                 {item.type === 'video' ? (
                   <>
-                    <img src={item.thumbnail} alt={item.title} />
+                    <img 
+                      src={item.thumbnail} 
+                      alt={item.title}
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = item.fallbackThumbnail;
+                      }}
+                    />
                     <div className="play-icon">▶</div>
                   </>
                 ) : (
@@ -297,6 +304,7 @@ const GalleryPage = () => {
               {selectedMedia.type === 'video' ? (
                 <video controls autoPlay>
                   <source src={selectedMedia.videoUrl} type="video/mp4" />
+                  Seu navegador não suporta vídeos.
                 </video>
               ) : (
                 <img src={selectedMedia.image} alt={selectedMedia.title} />
