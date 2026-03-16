@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
 
@@ -19,13 +19,17 @@ const Header = () => {
     setMenuOpen(false);
   }, [location]);
 
+  const handleLinkClick = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="header-container container">
-        <Link to="/" className="logo" onClick={() => setMenuOpen(false)}>
-          <img src="/images/logo.png" alt="Drica & Leo" className="logo-img" />
+        <Link to="/" className="logo" onClick={handleLinkClick}>
+          <img src="/images/logo.png" alt="Drica & Léo" className="logo-img" />
           <div className="logo-text">
-            <h2>Drica & Leo</h2>
+            <h2>Drica & Léo</h2>
             <p>Personal Organizer</p>
           </div>
         </Link>
@@ -41,11 +45,11 @@ const Header = () => {
         </button>
 
         <nav className={`nav ${menuOpen ? 'active' : ''}`}>
-          <Link to="/" className="nav-link" onClick={() => setMenuOpen(false)}>Início</Link>
-          <Link to="/servicos" className="nav-link" onClick={() => setMenuOpen(false)}>Serviços</Link>
-          <Link to="/sobre" className="nav-link" onClick={() => setMenuOpen(false)}>Sobre</Link>
-          <Link to="/galeria" className="nav-link" onClick={() => setMenuOpen(false)}>Galeria</Link>
-          <Link to="/contato" className="nav-link" onClick={() => setMenuOpen(false)}>Contato</Link>
+          <Link to="/" className="nav-link" onClick={handleLinkClick}>Início</Link>
+          <Link to="/servicos" className="nav-link" onClick={handleLinkClick}>Serviços</Link>
+          <Link to="/sobre" className="nav-link" onClick={handleLinkClick}>Sobre</Link>
+          <Link to="/galeria" className="nav-link" onClick={handleLinkClick}>Galeria</Link>
+          <Link to="/contato" className="nav-link" onClick={handleLinkClick}>Contato</Link>
 
           <div className="nav-social">
             <a 
@@ -53,7 +57,7 @@ const Header = () => {
               className="nav-link whatsapp"
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => setMenuOpen(false)}
+              onClick={handleLinkClick}
             >
               <i className="fab fa-whatsapp"></i> WhatsApp
             </a>
@@ -62,7 +66,7 @@ const Header = () => {
               className="nav-link instagram"
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => setMenuOpen(false)}
+              onClick={handleLinkClick}
             >
               <i className="fab fa-instagram"></i> Instagram
             </a>

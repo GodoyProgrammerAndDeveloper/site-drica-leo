@@ -1,9 +1,15 @@
-﻿import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import BackToTop from "../components/BackToTop";
 
 const HomePage = () => {
   const navigate = useNavigate();
+  const [currentPath, setCurrentPath] = useState('/');
   const [logoAmpliado, setLogoAmpliado] = useState(false);
+
+  useEffect(() => {
+    setCurrentPath(window.location.pathname);
+  }, []);
 
   const services = [
     { icon: '👗', title: 'Guarda-roupas', desc: 'Organização completa com técnicas Marie Kondo' },
@@ -43,52 +49,110 @@ const HomePage = () => {
   ];
 
   return (
-    <div style={{
-      padding: "100px 20px 40px",
-      maxWidth: "1200px",
-      margin: "0 auto"
-    }}>
-      {/* SELO DE PROFISSIONAL CERTIFICADO */}
+    <div style={{ padding: "0", maxWidth: "1200px", margin: "0 auto", position: "relative" }}>
+      {/* HEADER FIXO COM MENU LADO DIREITO */}
       <div style={{
         position: "fixed",
-        top: "120px",
-        right: "20px",
-        background: "linear-gradient(135deg, #8b5cf6, #f43f5e)",
-        color: "white",
-        padding: "10px 20px",
-        borderRadius: "50px",
-        fontSize: "0.9rem",
-        fontWeight: "bold",
-        boxShadow: "0 4px 15px rgba(139, 92, 246, 0.3)",
-        zIndex: 1000,
+        top: 0,
+        left: 0,
+        width: "100%",
+        background: "white",
+        padding: "15px 30px",
+        boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
+        zIndex: 999,
         display: "flex",
         alignItems: "center",
-        gap: "8px",
-        border: "2px solid white"
+        justifyContent: "space-between",
+        flexWrap: "wrap"
       }}>
-        <span style={{ fontSize: "1.2rem" }}>🏆</span>
-        <span>Profissional Certificado</span>
-      </div>
+        {/* LOGO (ESQUERDA) */}
+        <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
+          <img 
+            src="/images/logo.png" 
+            alt="Drica & Léo" 
+            style={{ width: "50px", height: "50px", borderRadius: "50%", objectFit: "cover", cursor: "pointer" }}
+            onClick={() => setLogoAmpliado(true)}
+          />
+          <div>
+            <h2 style={{ margin: 0, fontSize: "1.3rem", color: "#4361ee" }}>Drica & Léo</h2>
+            <p style={{ margin: 0, fontSize: "0.8rem", color: "#f72585" }}>Personal Organizer</p>
+          </div>
+        </div>
 
-      {/* LOGO CLICÁVEL */}
-      <div style={{ textAlign: "center", marginBottom: "20px" }}>
-        <img
-          src="/images/logo.png"
-          alt="Logo Drica & Léo"
-          onClick={() => setLogoAmpliado(true)}
-          style={{
-            width: "150px",
-            height: "150px",
-            borderRadius: "50%",
-            objectFit: "cover",
-            cursor: "pointer",
-            border: "4px solid #8b5cf6",
-            boxShadow: "0 4px 15px rgba(139, 92, 246, 0.3)"
-          }}
-        />
-        <p style={{ marginTop: "10px", color: "#666", fontSize: "0.9rem" }}>
-          Clique na logo para ampliar
-        </p>
+        {/* MENU E BOTÕES (DIREITA) */}
+        <div style={{ display: "flex", alignItems: "center", gap: "30px", flexWrap: "wrap" }}>
+          {/* MENU DE NAVEGAÇÃO */}
+          <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
+            <a href="/" style={{ textDecoration: "none", color: currentPath === '/' ? '#4361ee' : '#2d2d44', fontWeight: currentPath === '/' ? '600' : '500' }}>Início</a>
+            <a href="/servicos" style={{ textDecoration: "none", color: currentPath === '/servicos' ? '#4361ee' : '#2d2d44', fontWeight: currentPath === '/servicos' ? '600' : '500' }}>Serviços</a>
+            <a href="/sobre" style={{ textDecoration: "none", color: currentPath === '/sobre' ? '#4361ee' : '#2d2d44', fontWeight: currentPath === '/sobre' ? '600' : '500' }}>Sobre</a>
+            <a href="/galeria" style={{ textDecoration: "none", color: currentPath === '/galeria' ? '#4361ee' : '#2d2d44', fontWeight: currentPath === '/galeria' ? '600' : '500' }}>Galeria</a>
+            <a href="/contato" style={{ textDecoration: "none", color: currentPath === '/contato' ? '#4361ee' : '#2d2d44', fontWeight: currentPath === '/contato' ? '600' : '500' }}>Contato</a>
+          </div>
+
+          {/* BOTÕES SOCIAIS COM SELO ABAIXO */}
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "5px" }}>
+            {/* BOTÕES */}
+            <div style={{ display: "flex", gap: "10px" }}>
+              <a 
+                href="https://wa.me/5581994732981" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{
+                  background: "#25d366",
+                  color: "white",
+                  padding: "8px 16px",
+                  borderRadius: "50px",
+                  textDecoration: "none",
+                  fontWeight: "600",
+                  fontSize: "0.9rem",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "5px"
+                }}
+              >
+                <i className="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a 
+                href="https://instagram.com/adrianamoura.organizer" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{
+                  background: "linear-gradient(45deg, #f09433, #d62976, #962fbf, #4f5bd5)",
+                  color: "white",
+                  padding: "8px 16px",
+                  borderRadius: "50px",
+                  textDecoration: "none",
+                  fontWeight: "600",
+                  fontSize: "0.9rem",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "5px"
+                }}
+              >
+                <i className="fab fa-instagram"></i> Instagram
+              </a>
+            </div>
+
+            {/* SELO ABAIXO DOS BOTÕES */}
+            <div style={{
+              background: "linear-gradient(135deg, #4361ee, #f72585)",
+              color: "white",
+              padding: "4px 12px",
+              borderRadius: "50px",
+              fontSize: "0.75rem",
+              fontWeight: "bold",
+              display: "flex",
+              alignItems: "center",
+              gap: "5px",
+              whiteSpace: "nowrap",
+              border: "2px solid white",
+              boxShadow: "0 2px 8px rgba(0,0,0,0.2)"
+            }}>
+              <span style={{ fontSize: "0.9rem" }}>🏆</span> Profissional Certificado
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* MODAL DO LOGO */}
@@ -147,272 +211,458 @@ const HomePage = () => {
         </div>
       )}
 
+      <style>{`
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
+        body {
+          background: #fef6f9;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+          padding-top: 80px;
+        }
+        .hero-section {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
+          margin: 20px 20px 80px 20px;
+          align-items: center;
+        }
+        .hero-content h1 {
+          font-size: 3rem;
+          color: #4361ee;
+          margin-bottom: 10px;
+        }
+        .hero-content .subtitle {
+          font-size: 1.3rem;
+          color: #f72585;
+          margin-bottom: 20px;
+        }
+        .hero-content p {
+          font-size: 1.1rem;
+          color: #2d2d44;
+          line-height: 1.8;
+          margin-bottom: 30px;
+        }
+        .hero-buttons {
+          display: flex;
+          gap: 15px;
+        }
+        .btn-primary {
+          padding: 12px 30px;
+          background: #4361ee;
+          color: white;
+          border: none;
+          border-radius: 50px;
+          font-size: 1rem;
+          font-weight: 600;
+          cursor: pointer;
+        }
+        .btn-secondary {
+          padding: 12px 30px;
+          background: transparent;
+          color: #4361ee;
+          border: 2px solid #4361ee;
+          border-radius: 50px;
+          font-size: 1rem;
+          font-weight: 600;
+          cursor: pointer;
+        }
+        .hero-image {
+          width: 100%;
+          height: 400px;
+          border-radius: 20px;
+          overflow: hidden;
+        }
+        .hero-image img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .section-title {
+          font-size: 2.5rem;
+          color: #4361ee;
+          text-align: center;
+          margin: 0 20px 40px 20px;
+        }
+        .about-section {
+          margin: 0 20px 80px 20px;
+        }
+        .about-content {
+          background: #f8f9fa;
+          padding: 40px;
+          border-radius: 20px;
+        }
+        .about-content p {
+          color: #2d2d44;
+          line-height: 1.8;
+          margin-bottom: 20px;
+        }
+        .services-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 25px;
+          margin: 0 20px 40px 20px;
+        }
+        .service-card {
+          background: white;
+          padding: 30px;
+          border-radius: 15px;
+          text-align: center;
+          box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+          cursor: pointer;
+          transition: transform 0.2s;
+        }
+        .service-card:hover {
+          transform: translateY(-5px);
+        }
+        .service-icon {
+          font-size: 3rem;
+          margin-bottom: 15px;
+        }
+        .service-card h3 {
+          font-size: 1.3rem;
+          color: #4361ee;
+          margin-bottom: 10px;
+        }
+        .service-card p {
+          color: #2d2d44;
+          font-size: 0.95rem;
+          line-height: 1.6;
+        }
+        .testimonials-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 25px;
+          margin: 0 20px 80px 20px;
+        }
+        .testimonial-card {
+          background: white;
+          padding: 30px;
+          border-radius: 15px;
+          box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .testimonial-header {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          margin-bottom: 15px;
+        }
+        .testimonial-avatar {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background: #f72585;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-size: 1.5rem;
+        }
+        .testimonial-name {
+          font-size: 1.1rem;
+          color: #4361ee;
+        }
+        .testimonial-text {
+          color: #2d2d44;
+          line-height: 1.8;
+          margin-bottom: 15px;
+          font-style: italic;
+        }
+        .testimonial-stars {
+          color: #ffc107;
+          font-size: 1.2rem;
+        }
+        .cta-section {
+          text-align: center;
+          background: linear-gradient(135deg, #4361ee, #f72585);
+          color: white;
+          padding: 60px;
+          border-radius: 20px;
+          margin: 0 20px 40px 20px;
+        }
+        .cta-section h2 {
+          font-size: 2.5rem;
+          margin-bottom: 20px;
+          color: white;
+        }
+        .cta-section p {
+          font-size: 1.2rem;
+          margin-bottom: 30px;
+          opacity: 0.9;
+        }
+        .btn-white {
+          padding: 12px 30px;
+          background: white;
+          color: #4361ee;
+          border: none;
+          border-radius: 50px;
+          font-size: 1rem;
+          font-weight: 600;
+          cursor: pointer;
+        }
+
+        /* ===== CELULAR ===== */
+        @media (max-width: 768px) {
+          body {
+            padding-top: 200px !important;
+          }
+
+          .hero-section {
+            margin: 0 15px 60px 15px;
+          }
+
+          .about-section {
+            margin: 0 15px 60px 15px;
+          }
+
+          .services-grid {
+            margin: 0 15px 30px 15px;
+          }
+
+          .testimonials-grid {
+            margin: 0 15px 60px 15px;
+          }
+
+          .cta-section {
+            margin: 0 15px 30px 15px;
+            padding: 40px 20px;
+          }
+
+          .hero-section {
+            grid-template-columns: 1fr;
+          }
+          
+          h1 {
+            font-size: 2.5rem;
+          }
+          
+          .hero-buttons {
+            flex-direction: column;
+            align-items: center;
+          }
+          
+          .btn-primary, .btn-secondary {
+            width: 100%;
+            max-width: 280px;
+          }
+          
+          .hero-image {
+            height: 250px;
+            margin-top: 20px;
+          }
+          
+          .services-grid,
+          .testimonials-grid {
+            grid-template-columns: 1fr;
+          }
+          
+          .service-card {
+            padding: 25px;
+          }
+          
+          .cta-section h2 {
+            font-size: 2rem;
+          }
+          
+          .cta-section p {
+            font-size: 1rem;
+          }
+          
+          div[style*="position: fixed; top: 0; left: 0; width: 100%;"] {
+            padding: 10px 15px !important;
+            flex-direction: column !important;
+            align-items: center !important;
+          }
+          
+          div[style*="display: flex; gap: 20px; align-items: center;"] {
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+            gap: 10px !important;
+          }
+          
+          div[style*="display: flex; flex-direction: column; align-items: flex-end; gap: 5px;"] {
+            align-items: center !important;
+          }
+          
+          div[style*="display: flex; gap: 10px;"] {
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+          }
+          
+          a[style*="padding: 8px 16px;"] {
+            padding: 6px 12px !important;
+            font-size: 0.8rem !important;
+          }
+          
+          .testimonial-card {
+            padding: 20px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          body {
+            padding-top: 220px !important;
+          }
+          
+          h1 {
+            font-size: 2rem;
+          }
+          
+          h2 {
+            font-size: 1.8rem;
+          }
+          
+          .section-title {
+            font-size: 2rem;
+          }
+          
+          .service-card {
+            padding: 20px;
+          }
+          
+          .service-icon {
+            font-size: 2.5rem;
+          }
+          
+          .service-card h3 {
+            font-size: 1.2rem;
+          }
+          
+          .service-card p {
+            font-size: 0.9rem;
+          }
+          
+          .testimonial-avatar {
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+          }
+          
+          .testimonial-name {
+            font-size: 1rem;
+          }
+          
+          .testimonial-text {
+            font-size: 0.9rem;
+          }
+          
+          .cta-section {
+            padding: 30px 15px;
+          }
+          
+          .cta-section h2 {
+            font-size: 1.8rem;
+          }
+          
+          div[style*="position: fixed; top: 0; left: 0; width: 100%;"] {
+            padding: 8px 10px !important;
+          }
+          
+          .logo-img, div[style*="width: 50px; height: 50px;"] {
+            width: 40px !important;
+            height: 40px !important;
+          }
+          
+          h2[style*="font-size: 1.3rem;"] {
+            font-size: 1.1rem !important;
+          }
+          
+          p[style*="font-size: 0.8rem;"] {
+            font-size: 0.7rem !important;
+          }
+        }
+      `}</style>
+
       {/* HERO SECTION */}
-      <section style={{
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-        gap: '40px',
-        marginBottom: '80px',
-        alignItems: 'center'
-      }}>
-        <div style={{ textAlign: 'left' }}>
-          <h1 style={{
-            fontSize: '3rem',
-            color: '#8b5cf6',
-            marginBottom: '10px'
-          }}>Drica & Léo</h1>
-          <p style={{
-            fontSize: '1.3rem',
-            color: '#f43f5e',
-            marginBottom: '20px'
-          }}>Personal Organizer</p>
-          <p style={{
-            fontSize: '1.1rem',
-            color: '#666',
-            lineHeight: '1.8',
-            marginBottom: '30px'
-          }}>
+      <section className="hero-section">
+        <div className="hero-content">
+          <h1>Drica & Léo</h1>
+          <p className="subtitle">Personal Organizer</p>
+          <p>
             Transformamos casas em lares organizados, onde cada objeto tem seu lugar 
             e cada espaço conta uma história. Com mais de 10 anos de experiência, 
             levamos profissionalismo, dedicação e excelência para cada projeto.
           </p>
-          <div style={{ display: 'flex', gap: '15px' }}>
-            <button 
-              onClick={() => navigate('/contato')}
-              style={{
-                padding: '12px 30px',
-                background: '#8b5cf6',
-                color: 'white',
-                border: 'none',
-                borderRadius: '30px',
-                fontSize: '1rem',
-                fontWeight: '600',
-                cursor: 'pointer'
-              }}
-            >
-              Fale Conosco
-            </button>
-            <button 
-              onClick={() => navigate('/servicos')}
-              style={{
-                padding: '12px 30px',
-                background: 'transparent',
-                color: '#8b5cf6',
-                border: '2px solid #8b5cf6',
-                borderRadius: '30px',
-                fontSize: '1rem',
-                fontWeight: '600',
-                cursor: 'pointer'
-              }}
-            >
-              Conheça nossos serviços
-            </button>
+          <div className="hero-buttons">
+            <button className="btn-primary" onClick={() => navigate('/contato')}>Fale Conosco</button>
+            <button className="btn-secondary" onClick={() => navigate('/servicos')}>Conheça nossos serviços</button>
           </div>
         </div>
-        <div style={{
-          width: '100%',
-          height: '400px',
-          borderRadius: '20px',
-          overflow: 'hidden'
-        }}>
-          <img 
-            src="/images/Organização com colmeias.jpeg" 
-            alt="Organização profissional"
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover'
-            }}
-          />
+        <div className="hero-image">
+          <img src="/images/Organização com colmeias.jpeg" alt="Organização profissional" />
         </div>
       </section>
 
       {/* SOBRE NÓS */}
-      <section style={{ marginBottom: '80px' }}>
-        <h2 style={{
-          fontSize: '2.5rem',
-          color: '#8b5cf6',
-          textAlign: 'center',
-          marginBottom: '40px'
-        }}>Sobre Nós</h2>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr',
-          gap: '40px',
-          background: '#f9f9f9',
-          padding: '40px',
-          borderRadius: '20px'
-        }}>
-          <div style={{ color: '#666', lineHeight: '1.8' }}>
-            <p>
-              Somos Adriana (Drica) e Leonita (Léo), duas irmãs pernambucanas com uma 
-              paixão em comum: transformar vidas através da organização. Nossa jornada 
-              começou há mais de uma década, quando percebemos que um ambiente organizado 
-              traz não apenas beleza estética, mas também paz de espírito, economia de 
-              tempo e qualidade de vida.
-            </p>
-            <p>
-              Com formação em Design de Interiores e especialização em Organização 
-              Profissional, desenvolvemos uma metodologia única que combina técnicas 
-              avançadas com um toque pessoal e acolhedor. Cada projeto é tratado com 
-              a dedicação que merece, respeitando a individualidade de cada cliente 
-              e suas necessidades específicas.
-            </p>
-          </div>
+      <section className="about-section">
+        <h2 className="section-title">Sobre Nós</h2>
+        <div className="about-content">
+          <p>
+            Somos Adriana (Drica) e Leonita (Léo), duas irmãs pernambucanas com uma 
+            paixão em comum: transformar vidas através da organização. Nossa jornada 
+            começou há mais de uma década, quando percebemos que um ambiente organizado 
+            traz não apenas beleza estética, mas também paz de espírito, economia de 
+            tempo e qualidade de vida.
+          </p>
+          <p>
+            Com formação em Design de Interiores e especialização em Organização 
+            Profissional, desenvolvemos uma metodologia única que combina técnicas 
+            avançadas com um toque pessoal e acolhedor. Cada projeto é tratado com 
+            a dedicação que merece, respeitando a individualidade de cada cliente 
+            e suas necessidades específicas.
+          </p>
         </div>
       </section>
 
       {/* SERVIÇOS */}
-      <section style={{ marginBottom: '80px' }}>
-        <h2 style={{
-          fontSize: '2.5rem',
-          color: '#8b5cf6',
-          textAlign: 'center',
-          marginBottom: '40px'
-        }}>Nossos Serviços</h2>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '25px',
-          marginBottom: '40px'
-        }}>
+      <section>
+        <h2 className="section-title">Nossos Serviços</h2>
+        <div className="services-grid">
           {services.map((service, index) => (
-            <div 
-              key={index} 
-              style={{
-                background: 'white',
-                padding: '30px',
-                borderRadius: '15px',
-                textAlign: 'center',
-                boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
-                cursor: 'pointer'
-              }}
-              onClick={() => navigate('/servicos')}
-            >
-              <div style={{ fontSize: '3rem', marginBottom: '15px' }}>{service.icon}</div>
-              <h3 style={{
-                fontSize: '1.3rem',
-                color: '#8b5cf6',
-                marginBottom: '10px'
-              }}>{service.title}</h3>
-              <p style={{
-                color: '#666',
-                fontSize: '0.95rem',
-                lineHeight: '1.6'
-              }}>{service.desc}</p>
+            <div key={index} className="service-card" onClick={() => navigate('/servicos')}>
+              <div className="service-icon">{service.icon}</div>
+              <h3>{service.title}</h3>
+              <p>{service.desc}</p>
             </div>
           ))}
         </div>
-        <div style={{ textAlign: 'center' }}>
-          <button 
-            onClick={() => navigate('/servicos')}
-            style={{
-              padding: '12px 30px',
-              background: '#8b5cf6',
-              color: 'white',
-              border: 'none',
-              borderRadius: '30px',
-              fontSize: '1rem',
-              fontWeight: '600',
-              cursor: 'pointer'
-            }}
-          >
+        <div style={{ textAlign: "center", marginBottom: "80px" }}>
+          <button className="btn-primary" onClick={() => navigate('/servicos')}>
             Ver todos os serviços
           </button>
         </div>
       </section>
 
       {/* DEPOIMENTOS */}
-      <section style={{ marginBottom: '80px' }}>
-        <h2 style={{
-          fontSize: '2.5rem',
-          color: '#8b5cf6',
-          textAlign: 'center',
-          marginBottom: '40px'
-        }}>O que nossos clientes dizem</h2>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '25px'
-        }}>
+      <section>
+        <h2 className="section-title">O que nossos clientes dizem</h2>
+        <div className="testimonials-grid">
           {testimonials.map((testimonial, index) => (
-            <div key={index} style={{
-              background: 'white',
-              padding: '30px',
-              borderRadius: '15px',
-              boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
-            }}>
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '15px',
-                marginBottom: '15px'
-              }}>
-                <div style={{
-                  width: '50px',
-                  height: '50px',
-                  borderRadius: '50%',
-                  background: '#f43f5e',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: 'white',
-                  fontSize: '2rem'
-                }}>
-                  {testimonial.icon}
-                </div>
-                <h4 style={{ fontSize: '1.1rem', color: '#8b5cf6' }}>{testimonial.name}</h4>
+            <div key={index} className="testimonial-card">
+              <div className="testimonial-header">
+                <div className="testimonial-avatar">{testimonial.icon}</div>
+                <h4 className="testimonial-name">{testimonial.name}</h4>
               </div>
-              <p style={{
-                color: '#666',
-                lineHeight: '1.8',
-                marginBottom: '15px',
-                fontStyle: 'italic'
-              }}>"{testimonial.text}"</p>
-              <div style={{ color: '#ffc107', fontSize: '1.2rem' }}>
-                {'★'.repeat(5)}
-              </div>
+              <p className="testimonial-text">"{testimonial.text}"</p>
+              <div className="testimonial-stars">{'★'.repeat(5)}</div>
             </div>
           ))}
         </div>
       </section>
 
       {/* CTA FINAL */}
-      <section style={{
-        textAlign: 'center',
-        background: 'linear-gradient(135deg, #8b5cf6, #f43f5e)',
-        color: 'white',
-        padding: '60px',
-        borderRadius: '20px'
-      }}>
-        <h2 style={{
-          fontSize: '2.5rem',
-          marginBottom: '20px',
-          color: 'white'
-        }}>Pronto para transformar seu espaço?</h2>
-        <p style={{
-          fontSize: '1.2rem',
-          marginBottom: '30px',
-          opacity: '0.9'
-        }}>
-          Entre em contato e agende uma visita. Vamos juntos criar o lar dos seus sonhos!
-        </p>
-        <button 
-          onClick={() => navigate('/contato')}
-          style={{
-            padding: '12px 30px',
-            background: 'white',
-            color: '#8b5cf6',
-            border: 'none',
-            borderRadius: '30px',
-            fontSize: '1rem',
-            fontWeight: '600',
-            cursor: 'pointer'
-          }}
-        >
+      <section className="cta-section">
+        <h2>Pronto para transformar seu espaço?</h2>
+        <p>Entre em contato e agende uma visita. Vamos juntos criar o lar dos seus sonhos!</p>
+        <button className="btn-white" onClick={() => navigate('/contato')}>
           Falar no WhatsApp
         </button>
       </section>
+
+      {/* BOTÃO VOLTAR AO TOPO */}
+      <BackToTop />
     </div>
   );
 };
