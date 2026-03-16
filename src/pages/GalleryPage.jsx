@@ -10,11 +10,11 @@ const GalleryPage = () => {
     setCurrentPath(window.location.pathname);
   }, []);
 
-  // DADOS COMBINADOS (IMAGENS + 4 VÍDEOS)
+  // DADOS COMBINADOS (IMAGENS + 4 VÍDEOS) - CATEGORIAS CORRIGIDAS
   const mediaItems = [
-    // VÍDEO 1
+    // VÍDEO 1 - Guarda-roupas (ID 101)
     {
-      id: 1,
+      id: 101,
       type: 'video',
       thumbnail: '/images/thumbnail-guarda-roupas.jpg',
       fallbackThumbnail: '/images/logo.png',
@@ -23,20 +23,20 @@ const GalleryPage = () => {
       description: 'Processo completo de organização de guarda-roupas',
       category: 'guarda-roupas'
     },
-    // VÍDEO 2
+    // VÍDEO 2 - Guarda-roupas (ID 102)
     {
-      id: 2,
+      id: 102,
       type: 'video',
-      thumbnail: '/images/thumbnail-cozinha.jpg',
+      thumbnail: '/images/thumbnail-guarda-roupas-2.jpg',
       fallbackThumbnail: '/images/logo.png',
       videoUrl: '/videos/video2.mp4',
-      title: 'Cozinha Antes/Depois',
-      description: 'Transformação da despensa e organização de louças',
-      category: 'cozinha'
+      title: 'Guarda-roupas Organizado',
+      description: 'Organização completa de guarda-roupas',
+      category: 'guarda-roupas'
     },
-    // VÍDEO 3
+    // VÍDEO 3 - Organização (ID 103)
     {
-      id: 3,
+      id: 103,
       type: 'video',
       thumbnail: '/images/thumbnail-organizacao.jpg',
       fallbackThumbnail: '/images/logo.png',
@@ -45,20 +45,20 @@ const GalleryPage = () => {
       description: 'Técnica profissional de organização com colmeias',
       category: 'organizacao'
     },
-    // VÍDEO 4
+    // VÍDEO 4 - Organização (ID 104)
     {
-      id: 4,
+      id: 104,
       type: 'video',
-      thumbnail: '/images/thumbnail-depoimento.jpg',
+      thumbnail: '/images/thumbnail-organizacao-2.jpg',
       fallbackThumbnail: '/images/logo.png',
       videoUrl: '/videos/video4.mp4',
-      title: 'Depoimento de Cliente',
-      description: 'Cliente satisfeita com o trabalho realizado',
-      category: 'depoimentos'
+      title: 'Organização de Ambientes',
+      description: 'Transformação completa de espaços',
+      category: 'organizacao'
     },
-    // IMAGENS
+    // IMAGENS (IDs a partir de 201)
     {
-      id: 5,
+      id: 201,
       type: 'image',
       image: '/images/Cabide Roupoas Masculinas.jpeg',
       title: 'Guarda-roupas Masculino',
@@ -66,7 +66,7 @@ const GalleryPage = () => {
       category: 'guarda-roupas'
     },
     {
-      id: 6,
+      id: 202,
       type: 'image',
       image: '/images/Louça organizada_01.jpeg',
       title: 'Louça Organizada',
@@ -74,7 +74,7 @@ const GalleryPage = () => {
       category: 'cozinha'
     },
     {
-      id: 7,
+      id: 203,
       type: 'image',
       image: '/images/Papelaria Depois.jpeg',
       title: 'Papelaria Organizada',
@@ -82,7 +82,7 @@ const GalleryPage = () => {
       category: 'escritorio'
     },
     {
-      id: 8,
+      id: 204,
       type: 'image',
       image: '/images/Organização comeias frente Depois.jpeg',
       title: 'Organização com Colmeias',
@@ -90,7 +90,7 @@ const GalleryPage = () => {
       category: 'organizacao'
     },
     {
-      id: 9,
+      id: 205,
       type: 'image',
       image: '/images/Roupas Depois.jpeg',
       title: 'Roupas Organizadas',
@@ -98,7 +98,7 @@ const GalleryPage = () => {
       category: 'guarda-roupas'
     },
     {
-      id: 10,
+      id: 206,
       type: 'image',
       image: '/images/Sapatos Depois.jpeg',
       title: 'Sapatos Organizados',
@@ -113,8 +113,7 @@ const GalleryPage = () => {
     { id: 'cozinha', label: 'Cozinhas', icon: '🍳' },
     { id: 'escritorio', label: 'Escritórios', icon: '💻' },
     { id: 'organizacao', label: 'Organização', icon: '✨' },
-    { id: 'sapatos', label: 'Sapatos', icon: '👠' },
-    { id: 'depoimentos', label: 'Depoimentos', icon: '💬' }
+    { id: 'sapatos', label: 'Sapatos', icon: '👠' }
   ];
 
   const filteredMedia = selectedCategory === 'todos' 
