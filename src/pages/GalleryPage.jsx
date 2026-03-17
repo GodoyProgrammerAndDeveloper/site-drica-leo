@@ -196,9 +196,11 @@ const GalleryPage = () => {
                 display: "flex",
                 alignItems: "center",
                 gap: "3px",
-                transition: "transform 0.2s ease, box-shadow 0.2s ease",
+                transition: "all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 3s infinite",
                 whiteSpace: "nowrap",
-                minHeight: "32px"
+                minHeight: "32px",
+                boxShadow: "0 4px 12px rgba(37, 211, 102, 0.2)",
+                animation: "softPulseGreen 2.5s infinite"
               }}>
                 <i className="fab fa-whatsapp"></i> <span style={{ display: "none" }} className="hide-phone">WhatsApp</span>
               </a>
@@ -213,9 +215,11 @@ const GalleryPage = () => {
                 display: "flex",
                 alignItems: "center",
                 gap: "3px",
-                transition: "transform 0.2s ease, box-shadow 0.2s ease",
+                transition: "all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)",
                 whiteSpace: "nowrap",
-                minHeight: "32px"
+                minHeight: "32px",
+                boxShadow: "0 4px 12px rgba(240, 148, 51, 0.2)",
+                animation: "softPulseInstagram 2.5s infinite"
               }}>
                 <i className="fab fa-instagram"></i> <span style={{ display: "none" }} className="hide-phone">Instagram</span>
               </a>
@@ -251,6 +255,16 @@ const GalleryPage = () => {
               display: inline !important;
             }
           }
+          
+          a[href*="wa.me"]:hover {
+            transform: translateY(-3px) scale(1.08) !important;
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4) !important;
+          }
+          
+          a[href*="instagram"]:hover {
+            transform: translateY(-3px) scale(1.08) !important;
+            box-shadow: 0 8px 24px rgba(240, 148, 51, 0.4) !important;
+          }
         `}</style>
       </div>
 
@@ -258,6 +272,26 @@ const GalleryPage = () => {
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
         body { background: #FAF7F2; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+        
+        /* Otimizações para mobile */
+        @media (max-width: 768px) {
+          .card {
+            animation: none !important;
+            opacity: 1 !important;
+          }
+          
+          .category-btn:hover {
+            transform: translateY(-2px);
+          }
+        }
+        
+        /* Respeitar preferências do usuário */
+        @media (prefers-reduced-motion: reduce) {
+          .card, .category-btn, .play-icon, .modal-close {
+            animation: none !important;
+            transition-duration: 0.01ms !important;
+          }
+        }
         
         .gallery-wrapper { 
           padding-top: clamp(110px, 15vw, 150px); 
@@ -309,12 +343,23 @@ const GalleryPage = () => {
         }
         
         .category-btn:hover { 
-          transform: translateY(-2px);
-          box-shadow: 0 4px 12px rgba(67, 97, 238, 0.15);
+          transform: translateY(-3px) scale(1.02);
+          box-shadow: 0 6px 18px rgba(67, 97, 238, 0.25);
+          background: linear-gradient(135deg, rgba(67, 97, 238, 0.05), rgba(247, 37, 133, 0.05));
         }
         
         .category-btn:active {
-          transform: translateY(0);
+          transform: translateY(-1px) scale(0.98);
+        }
+        
+        .category-btn.active {
+          background: linear-gradient(135deg, #4361ee, #f72585);
+          color: white;
+          box-shadow: 0 4px 16px rgba(67, 97, 238, 0.3);
+        }
+        
+        .category-btn.active:hover {
+          box-shadow: 0 6px 22px rgba(67, 97, 238, 0.4);
         }
         
         .grid { 
@@ -330,18 +375,34 @@ const GalleryPage = () => {
           overflow: hidden; 
           box-shadow: 0 3px 12px rgba(67,97,238,0.08); 
           cursor: pointer; 
-          transition: all 0.25s ease;
+          transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
           display: flex;
           flex-direction: column;
+          position: relative;
+        }
+        
+        .card::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(135deg, rgba(67, 97, 238, 0.08), rgba(247, 37, 133, 0.08));
+          opacity: 0;
+          transition: opacity 0.35s ease;
+          z-index: 1;
+          pointer-events: none;
         }
         
         .card:hover { 
-          transform: translateY(-6px);
-          box-shadow: 0 8px 24px rgba(67,97,238,0.15);
+          transform: translateY(-8px) scale(1.02);
+          box-shadow: 0 12px 32px rgba(67,97,238,0.2);
+        }
+        
+        .card:hover::before {
+          opacity: 1;
         }
         
         .card:active {
-          transform: translateY(-3px);
+          transform: translateY(-4px) scale(0.98);
         }
         
         .media-container { 
@@ -378,12 +439,14 @@ const GalleryPage = () => {
           color: white; 
           font-size: clamp(1rem, 3vw, 1.8rem);
           z-index: 2;
-          transition: all 0.2s ease;
+          transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+          box-shadow: 0 4px 16px rgba(67, 97, 238, 0.3);
         }
         
         .card:hover .play-icon {
           background: rgba(67,97,238,0.95);
-          transform: translate(-50%, -50%) scale(1.1);
+          transform: translate(-50%, -50%) scale(1.25);
+          box-shadow: 0 8px 24px rgba(67, 97, 238, 0.5);
         }
         
         .card-content { 
@@ -449,16 +512,18 @@ const GalleryPage = () => {
           color: white; 
           cursor: pointer;
           padding: 5px;
-          transition: transform 0.2s ease;
+          transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
           z-index: 2001;
+          text-shadow: 0 0 12px rgba(67, 97, 238, 0.3);
         }
         
         .modal-close:hover {
-          transform: scale(1.2);
+          transform: scale(1.35) rotate(90deg);
+          text-shadow: 0 0 20px rgba(67, 97, 238, 0.6);
         }
         
         .modal-close:active {
-          transform: scale(1);
+          transform: scale(1.1) rotate(45deg);
         }
         
         .modal video, 
@@ -683,7 +748,7 @@ const GalleryPage = () => {
         </div>
 
         <div className="grid">
-          {filteredMedia.map(item => (
+          {filteredMedia.map((item, index) => (
             <div 
               key={item.id} 
               className="card" 
@@ -696,6 +761,7 @@ const GalleryPage = () => {
                 }
               }}
               aria-label={`${item.title}, ${item.description}`}
+              style={{ animation: `fadeInScale 0.5s ease-out ${index * 0.08}s forwards` }}
             >
               <div className="media-container">
                 {item.type === 'video' ? (
