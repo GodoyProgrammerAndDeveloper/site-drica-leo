@@ -10,55 +10,55 @@ const GalleryPage = () => {
     setCurrentPath(window.location.pathname);
   }, []);
 
-  // DADOS COMBINADOS - NOMES CORRIGIDOS CONFORME SUA SOLICITAÇÃO
+  // DADOS COMBINADOS - NOMES CORRETOS
   const mediaItems = [
     // VÍDEO 1 - Guarda-roupas
     {
-      id: 101,
+      id: 1,
       type: 'video',
-      thumbnail: '/images/thumbnail-guarda-roupas.jpg',
+      thumbnail: '/images/logo.png',
       fallbackThumbnail: '/images/logo.png',
       videoUrl: '/videos/video1.mp4',
       title: 'Guarda-roupas Antes/Depois',
       description: 'Processo completo de organização de guarda-roupas',
       category: 'guarda-roupas'
     },
-    // VÍDEO 2 - Guarda-roupas
+    // VÍDEO 2 - Cozinha
     {
-      id: 102,
+      id: 2,
       type: 'video',
-      thumbnail: '/images/thumbnail-guarda-roupas-2.jpg',
+      thumbnail: '/images/logo.png',
       fallbackThumbnail: '/images/logo.png',
       videoUrl: '/videos/video2.mp4',
-      title: 'Guarda-roupas Organizado',
-      description: 'Organização completa de guarda-roupas',
-      category: 'guarda-roupas'
+      title: 'Cozinha Organizada',
+      description: 'Transformação da despensa e organização de louças',
+      category: 'cozinha'
     },
-    // VÍDEO 3 - Organização
+    // VÍDEO 3 - Home Office
     {
-      id: 103,
+      id: 3,
       type: 'video',
-      thumbnail: '/images/thumbnail-organizacao.jpg',
+      thumbnail: '/images/logo.png',
       fallbackThumbnail: '/images/logo.png',
       videoUrl: '/videos/video3.mp4',
-      title: 'Organização com Colmeias',
-      description: 'Técnica profissional de organização com colmeias',
-      category: 'organizacao'
+      title: 'Home Office Produtivo',
+      description: 'Organização completa de escritório em casa',
+      category: 'escritorio'
     },
-    // VÍDEO 4 - Organização
+    // VÍDEO 4 - Depoimento
     {
-      id: 104,
+      id: 4,
       type: 'video',
-      thumbnail: '/images/thumbnail-organizacao-2.jpg',
+      thumbnail: '/images/logo.png',
       fallbackThumbnail: '/images/logo.png',
       videoUrl: '/videos/video4.mp4',
-      title: 'Organização de Ambientes',
-      description: 'Transformação completa de espaços',
-      category: 'organizacao'
+      title: 'Depoimento de Cliente',
+      description: 'Cliente satisfeita com o trabalho realizado',
+      category: 'depoimentos'
     },
     // IMAGENS EXISTENTES
     {
-      id: 201,
+      id: 5,
       type: 'image',
       image: '/images/Cabide Roupoas Masculinas.jpeg',
       title: 'Guarda-roupas Masculino',
@@ -66,7 +66,7 @@ const GalleryPage = () => {
       category: 'guarda-roupas'
     },
     {
-      id: 202,
+      id: 6,
       type: 'image',
       image: '/images/Louça organizada_01.jpeg',
       title: 'Louça Organizada',
@@ -74,7 +74,7 @@ const GalleryPage = () => {
       category: 'cozinha'
     },
     {
-      id: 203,
+      id: 7,
       type: 'image',
       image: '/images/Papelaria Depois.jpeg',
       title: 'Papelaria Organizada',
@@ -82,7 +82,7 @@ const GalleryPage = () => {
       category: 'escritorio'
     },
     {
-      id: 204,
+      id: 8,
       type: 'image',
       image: '/images/Organização comeias frente Depois.jpeg',
       title: 'Organização com Colmeias',
@@ -90,7 +90,7 @@ const GalleryPage = () => {
       category: 'organizacao'
     },
     {
-      id: 205,
+      id: 9,
       type: 'image',
       image: '/images/Roupas Depois.jpeg',
       title: 'Roupas Organizadas',
@@ -98,7 +98,7 @@ const GalleryPage = () => {
       category: 'guarda-roupas'
     },
     {
-      id: 206,
+      id: 10,
       type: 'image',
       image: '/images/Sapatos Depois.jpeg',
       title: 'Sapatos Organizados',
@@ -113,7 +113,8 @@ const GalleryPage = () => {
     { id: 'cozinha', label: 'Cozinhas', icon: '🍳' },
     { id: 'escritorio', label: 'Escritórios', icon: '💻' },
     { id: 'organizacao', label: 'Organização', icon: '✨' },
-    { id: 'sapatos', label: 'Sapatos', icon: '👠' }
+    { id: 'sapatos', label: 'Sapatos', icon: '👠' },
+    { id: 'depoimentos', label: 'Depoimentos', icon: '💬' }
   ];
 
   const filteredMedia = selectedCategory === 'todos' 
