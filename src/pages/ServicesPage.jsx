@@ -118,7 +118,7 @@ const ServicesPage = () => {
 
       <style>{`
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding-top: 80px; }
+        body { background: #FAF7F2; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding-top: 80px; }
         .services-wrapper { padding-top: 20px; width: 100%; }
         h1 { font-size: 3rem; color: #4361ee; text-align: center; margin: 20px 0 10px 0; }
         .sub { font-size: 1.3rem; color: #f72585; text-align: center; margin: 0 20px 50px 20px; }
