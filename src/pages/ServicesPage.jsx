@@ -17,7 +17,7 @@ const ServicesPage = () => {
       title: "Guarda-roupas", 
       benefit: "Ganhe tempo na hora de se vestir e prolongue a vida útil das suas roupas",
       quality: "Técnicas Marie Kondo, dobras especiais e sistemas de etiquetagem profissional",
-      image: "/images/Cabide Roupoas Masculinas.jpeg"
+      image: "/images/guarda-roupas/Cabide Roupoas Masculinas.jpeg"
     },
     { 
       id: 2,
@@ -25,7 +25,7 @@ const ServicesPage = () => {
       title: "Cozinhas", 
       benefit: "Cozinhe com prazer em um espaço onde tudo está ao alcance das mãos",
       quality: "Despensa funcional, potes herméticos e organização por categorias",
-      image: "/images/Louça organizada_01.jpeg"
+      image: "/images/cozinha/Louça organizada_01.jpeg"
     },
     { 
       id: 3,
@@ -33,7 +33,7 @@ const ServicesPage = () => {
       title: "Escritórios", 
       benefit: "Aumente sua produtividade com um home office livre de distrações",
       quality: "Gestão de cabos, organização de documentos e ergonomia do espaço",
-      image: "/images/Papelaria Depois.jpeg"
+      image: "/images/escritorio/Papelaria Depois.jpeg"
     },
     { 
       id: 4,
@@ -41,7 +41,7 @@ const ServicesPage = () => {
       title: "Salas", 
       benefit: "Receba bem em um ambiente aconchegante e harmonioso",
       quality: "Estantes organizadas, decoração funcional e espaços integrados",
-      image: "/images/Organização comeias frente Depois.jpeg"
+      image: "/images/organizacao/Organização comeias frente Depois.jpeg"
     },
     { 
       id: 5,
@@ -49,7 +49,7 @@ const ServicesPage = () => {
       title: "Quartos Kids", 
       benefit: "Estimule a autonomia das crianças com um quarto que elas mesmas organizam",
       quality: "Espaço lúdico, brinquedos acessíveis e área de estudos funcional",
-      image: "/images/Roupas Feminias Depois.jpeg"
+      image: "/images/guarda-roupas/Roupas Feminias Depois.jpeg"
     },
     { 
       id: 6,
@@ -57,7 +57,7 @@ const ServicesPage = () => {
       title: "Despensas", 
       benefit: "Economize nas compras com tudo à vista e controle de validade",
       quality: "Estoque organizado, etiquetagem completa e aproveitamento máximo",
-      image: "/images/Despensa Depois_01.jpeg"
+      image: "/images/cozinha/Despensa Depois_01.jpeg"
     }
   ];
 

@@ -216,7 +216,7 @@ const HomePage = () => {
           </div>
         </div>
         <div className="hero-image">
-          <img src="/images/Organização com colmeias.jpeg" alt="Organização profissional" />
+          <img src="/images/organizacao/Organização com colmeias.jpeg" alt="Organização profissional" />
         </div>
       </section>
 
