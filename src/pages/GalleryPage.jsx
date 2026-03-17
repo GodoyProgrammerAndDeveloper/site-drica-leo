@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import BackToTop from "../components/BackToTop";
 import { galleryMediaItems, galleryCategories } from "../data/galleryItems";
 
@@ -260,7 +260,7 @@ const GalleryPage = () => {
         body { background: #fef6f9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
         
         .gallery-wrapper { 
-          padding-top: 90px; 
+          padding-top: clamp(110px, 15vw, 150px); 
           width: 100%; 
           max-width: 1400px;
           margin: 0 auto;
@@ -475,7 +475,7 @@ const GalleryPage = () => {
         /* MOBILE FIRST - Dispositivos pequenos (320px+) */
         @media (max-width: 480px) {
           .gallery-wrapper { 
-            padding-top: 100px;
+            padding-top: 130px;
           }
           
           h1 {
@@ -531,7 +531,7 @@ const GalleryPage = () => {
         /* Tablets pequenos (481px - 600px) */
         @media (min-width: 481px) and (max-width: 600px) {
           .gallery-wrapper { 
-            padding-top: 100px;
+            padding-top: 130px;
           }
           
           .grid { 
@@ -548,7 +548,7 @@ const GalleryPage = () => {
         /* Tablets médios (601px - 768px) */
         @media (min-width: 601px) and (max-width: 768px) {
           .gallery-wrapper { 
-            padding-top: 95px;
+            padding-top: 120px;
           }
           
           .grid { 
@@ -565,7 +565,7 @@ const GalleryPage = () => {
         /* Tablets grandes e computadores pequenos (769px - 1024px) */
         @media (min-width: 769px) and (max-width: 1024px) {
           .gallery-wrapper { 
-            padding-top: 90px;
+            padding-top: 110px;
           }
           
           .grid { 
@@ -582,7 +582,7 @@ const GalleryPage = () => {
         /* Computadores (1025px+) */
         @media (min-width: 1025px) {
           .gallery-wrapper { 
-            padding-top: 85px;
+            padding-top: 100px;
           }
           
           .grid { 
