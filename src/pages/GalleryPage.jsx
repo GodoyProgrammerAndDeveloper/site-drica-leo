@@ -12,7 +12,7 @@ const GalleryPage = () => {
 
   // DADOS COMBINADOS - NOMES CORRETOS CONFORME SOLICITADO
   const mediaItems = [
-    // VÍDEO 1 - Guarda-roupas
+    // VÍDEO 1 - colmeia antes
     {
       id: 1,
       type: 'video',
@@ -23,7 +23,7 @@ const GalleryPage = () => {
       description: 'Processo de organização com colmeias - antes',
       category: 'organizacao'
     },
-    // VÍDEO 2 - Guarda-roupas
+    // VÍDEO 2 - colmeia depois
     {
       id: 2,
       type: 'video',
@@ -34,7 +34,7 @@ const GalleryPage = () => {
       description: 'Resultado da organização com colmeias - depois',
       category: 'organizacao'
     },
-    // VÍDEO 3 - Organização
+    // VÍDEO 3 - organização
     {
       id: 3,
       type: 'video',
@@ -45,7 +45,7 @@ const GalleryPage = () => {
       description: 'Organização completa de ambiente',
       category: 'organizacao'
     },
-    // VÍDEO 4 - Sala
+    // VÍDEO 4 - sala organizada
     {
       id: 4,
       type: 'video',
