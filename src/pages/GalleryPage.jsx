@@ -10,7 +10,7 @@ const GalleryPage = () => {
     setCurrentPath(window.location.pathname);
   }, []);
 
-  // DADOS COMBINADOS - NOMES CORRETOS
+  // DADOS COMBINADOS - NOMES CORRETOS CONFORME SOLICITADO
   const mediaItems = [
     // VÍDEO 1 - Guarda-roupas
     {
@@ -19,42 +19,42 @@ const GalleryPage = () => {
       thumbnail: '/images/logo.png',
       fallbackThumbnail: '/images/logo.png',
       videoUrl: '/videos/video1.mp4',
-      title: 'Guarda-roupas Antes/Depois',
-      description: 'Processo completo de organização de guarda-roupas',
-      category: 'guarda-roupas'
+      title: 'colmeia antes',
+      description: 'Processo de organização com colmeias - antes',
+      category: 'organizacao'
     },
-    // VÍDEO 2 - Cozinha
+    // VÍDEO 2 - Guarda-roupas
     {
       id: 2,
       type: 'video',
       thumbnail: '/images/logo.png',
       fallbackThumbnail: '/images/logo.png',
       videoUrl: '/videos/video2.mp4',
-      title: 'Cozinha Organizada',
-      description: 'Transformação da despensa e organização de louças',
-      category: 'cozinha'
+      title: 'colmeia depois',
+      description: 'Resultado da organização com colmeias - depois',
+      category: 'organizacao'
     },
-    // VÍDEO 3 - Home Office
+    // VÍDEO 3 - Organização
     {
       id: 3,
       type: 'video',
       thumbnail: '/images/logo.png',
       fallbackThumbnail: '/images/logo.png',
       videoUrl: '/videos/video3.mp4',
-      title: 'Home Office Produtivo',
-      description: 'Organização completa de escritório em casa',
-      category: 'escritorio'
+      title: 'organização',
+      description: 'Organização completa de ambiente',
+      category: 'organizacao'
     },
-    // VÍDEO 4 - Depoimento
+    // VÍDEO 4 - Sala
     {
       id: 4,
       type: 'video',
       thumbnail: '/images/logo.png',
       fallbackThumbnail: '/images/logo.png',
       videoUrl: '/videos/video4.mp4',
-      title: 'Depoimento de Cliente',
-      description: 'Cliente satisfeita com o trabalho realizado',
-      category: 'depoimentos'
+      title: 'sala organizada',
+      description: 'Sala organizada e funcional',
+      category: 'salas'
     },
     // IMAGENS EXISTENTES
     {
@@ -114,7 +114,7 @@ const GalleryPage = () => {
     { id: 'escritorio', label: 'Escritórios', icon: '💻' },
     { id: 'organizacao', label: 'Organização', icon: '✨' },
     { id: 'sapatos', label: 'Sapatos', icon: '👠' },
-    { id: 'depoimentos', label: 'Depoimentos', icon: '💬' }
+    { id: 'salas', label: 'Salas', icon: '🛋️' }
   ];
 
   const filteredMedia = selectedCategory === 'todos' 
