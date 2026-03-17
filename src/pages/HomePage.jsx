@@ -157,7 +157,7 @@ const HomePage = () => {
 
       <style>{`
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background: #fef6f9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding-top: 80px; }
+        body { background: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding-top: 80px; }
         .hero-section { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 20px 20px 80px 20px; align-items: center; }
         .hero-content h1 { font-size: 3rem; color: #4361ee; margin-bottom: 10px; }
         .hero-content .subtitle { font-size: 1.3rem; color: #f72585; margin-bottom: 20px; }

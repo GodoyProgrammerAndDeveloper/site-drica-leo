@@ -65,7 +65,7 @@ const AboutPage = () => {
 
       <style>{`
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background: #fef6f9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding-top: 80px; }
+        body { background: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding-top: 80px; }
         .about-wrapper { padding-top: 20px; width: 100%; }
         h1 { font-size: 3rem; color: #4361ee; text-align: center; margin: 20px 0 10px 0; }
         .divider { width: 80px; height: 4px; background: linear-gradient(135deg, #4361ee, #f72585); margin: 0 auto 40px; border-radius: 2px; }
